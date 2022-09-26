@@ -1,0 +1,11 @@
+<resources>
+    <!-- TITULOS ACTIVITY -->
+    <string name="app_name">ProjetoLogin</string>
+    <string name="TituloLoginActivity">Tela de Login</string>
+    <!-- BOTOES -->
+    <string name="btnEntrar">Entrar</string>
+    <!-- TEXTVIEWS -->
+    <string name="tvIdUserPerfil">ID_USER</string>
+    <string name="tvNomeUserPerfil">NOME_USUARIO</string>
+    <string name="tvLoginUserPerfil">LOGIN_USER</string>
+</resources>
