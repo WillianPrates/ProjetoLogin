@@ -4,7 +4,14 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.feldmann.projetologin.model.Albuns;
+import com.feldmann.projetologin.view.AlbumActivity;
+import com.feldmann.projetologin.view.CommentActivity;
 import com.feldmann.projetologin.view.LoginActivity;
+import com.feldmann.projetologin.view.PhotoActivity;
+import com.feldmann.projetologin.view.PostsActivity;
+import com.feldmann.projetologin.view.TodosActivity;
+import com.feldmann.projetologin.view.UserActivity;
 
 public class MainPresenter implements PresenterContract.presenterMain{
     //
@@ -28,7 +35,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         btnListPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), PostsActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
@@ -39,7 +46,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         ListComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), CommentActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
@@ -50,7 +57,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         ListAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), AlbumActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
@@ -61,7 +68,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         ListPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), PhotoActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
@@ -72,7 +79,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         ListTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), TodosActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
@@ -83,7 +90,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
         ListUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(view.getActivity(), .class);
+                intent = new Intent(view.getActivity(), UserActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });
