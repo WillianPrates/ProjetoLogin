@@ -7,16 +7,14 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.feldmann.projetologin.R;
-import com.feldmann.projetologin.model.User;
-import com.feldmann.projetologin.presenter.LoginPresenter;
-import com.feldmann.projetologin.presenter.MainPresenter;
+import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.presenter.PerfilPresenter;
 import com.feldmann.projetologin.repository.UserDataBase;
 
-public class PerfilUserActivity extends AppCompatActivity implements MainPresenter.view  {
+public class PerfilUserActivity extends AppCompatActivity implements PresenterContract.view  {
     private static final String tagLog = "PerfilUserActivity";
     //
-    private MainPresenter.presenterPerfil presenterPerfil;
+    private PresenterContract.presenterPerfil presenterPerfil;
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {

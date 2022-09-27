@@ -3,7 +3,6 @@ package com.feldmann.projetologin.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,15 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.feldmann.projetologin.R;
-import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.CadastroPresenter;
-import com.feldmann.projetologin.presenter.LoginPresenter;
-import com.feldmann.projetologin.presenter.MainPresenter;
-import com.feldmann.projetologin.repository.UserDataBase;
+import com.feldmann.projetologin.presenter.PresenterContract;
 
-public class CadastroActivity extends AppCompatActivity implements MainPresenter.view{
+public class CadastroActivity extends AppCompatActivity implements PresenterContract.view{
     private static final String tagLog = "CadastroActivity";
-    private MainPresenter.presenterCadastro presenterCadastro;
+    private PresenterContract.presenterCadastro presenterCadastro;
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {

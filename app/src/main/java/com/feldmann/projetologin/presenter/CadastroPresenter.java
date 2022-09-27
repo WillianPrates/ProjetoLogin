@@ -9,11 +9,11 @@ import com.feldmann.projetologin.view.LoginActivity;
 
 import java.util.List;
 
-public class CadastroPresenter implements MainPresenter.presenterCadastro {
+public class CadastroPresenter implements PresenterContract.presenterCadastro {
     private static final String tagLog = "CadastroPresenter";
     //
-    private MainPresenter.view view;
-    public CadastroPresenter(MainPresenter.view view) { this.view = view; }
+    private PresenterContract.view view;
+    public CadastroPresenter(PresenterContract.view view) { this.view = view; }
     //
     @Override
     public void telaLogin() {

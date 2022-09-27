@@ -7,6 +7,12 @@
     <!-- BOTOES -->
     <string name="btnEntrar">Entrar</string>
     <string name="btnCadastro">Cadastrar</string>
+    <string name="btnListPosts">Lista de Posts</string>
+    <string name="btnListComments">Lista de Comments</string>
+    <string name="btnListAlbuns">Lista de Albuns</string>
+    <string name="btnListPhotos">Lista de Photos</string>
+    <string name="btnListTodos">Lista de Todos</string>
+    <string name="btnListUsers">Lista de Users</string>
     <!-- TEXTVIEWS -->
     <string name="tvIdUserPerfil">ID_USER</string>
     <string name="tvNomeUserPerfil">NOME_USUARIO</string>

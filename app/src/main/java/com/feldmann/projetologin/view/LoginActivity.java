@@ -1,11 +1,9 @@
 package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,14 +12,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.feldmann.projetologin.R;
-import com.feldmann.projetologin.adapters.UserAdapter;
 import com.feldmann.projetologin.presenter.LoginPresenter;
-import com.feldmann.projetologin.presenter.MainPresenter;
+import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.repository.UserDataBase;
 
-public class LoginActivity extends AppCompatActivity implements MainPresenter.view {
+public class LoginActivity extends AppCompatActivity implements PresenterContract.view {
     private static final String tagLog = "LoginActivity";
-    private MainPresenter.presenterLogin presenterLogin;
+    private PresenterContract.presenterLogin presenterLogin;
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {

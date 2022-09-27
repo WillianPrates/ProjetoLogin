@@ -1,24 +1,21 @@
 package com.feldmann.projetologin.presenter;
 
 import android.content.Intent;
-import android.service.autofill.UserData;
 import android.util.Log;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.adapters.UserAdapter;
-import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.repository.UserDataBase;
 import com.feldmann.projetologin.view.CadastroActivity;
 import com.feldmann.projetologin.view.PerfilUserActivity;
 
-public class LoginPresenter implements MainPresenter.presenterLogin{
+public class LoginPresenter implements PresenterContract.presenterLogin{
     private static final String tagLog = "LoginPresenter";
     //
-    private MainPresenter.view view;
-    public LoginPresenter(MainPresenter.view view) { this.view = view; }
+    private PresenterContract.view view;
+    public LoginPresenter(PresenterContract.view view) { this.view = view; }
     //
     @Override
     public void verificaUsuario(String login, String senha) {

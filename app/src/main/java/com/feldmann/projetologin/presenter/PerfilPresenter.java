@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.repository.UserDataBase;
 
-public class PerfilPresenter implements MainPresenter.presenterPerfil{
+public class PerfilPresenter implements PresenterContract.presenterPerfil{
     private static final String tagLog = "PerfilPresenter";
     //
-    private MainPresenter.view view;
-    public PerfilPresenter(MainPresenter.view view) { this.view = view; }
+    private PresenterContract.view view;
+    public PerfilPresenter(PresenterContract.view view) { this.view = view; }
     @Override
     public void mostraUser(String login, TextView tvId, TextView tvNome, TextView tvLogin) {
 
