@@ -28,10 +28,9 @@ public class PerfilUserActivity extends AppCompatActivity implements MainPresent
         UserDataBase db = UserDataBase.getInstance();
         User user = db.getUserByLogin(sLogin);
         //
-        String id = user.getId()
-        tvId.setText(user.getId());
-        tvNome.setText(user.getNome());
-        tvLogin.setText(user.getLogin());
+        tvId.setText("ID: "+String.valueOf(user.getId()));
+        tvNome.setText("NOME: "+user.getNome());
+        tvLogin.setText("Login: "+user.getLogin());
         //
     }//fim onCreate
     //
