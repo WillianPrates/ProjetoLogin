@@ -27,17 +27,13 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         //
         this.presenterLogin = new LoginPresenter(this);
         //
-        Button btVerifica = findViewById(R.id.btEntrar);
-        EditText etLogin = findViewById(R.id.etLoginLogin);
-        EditText etSenha = findViewById(R.id.etSenhaLogin);
-        //
-        btVerifica.setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.btEntrar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(tagLog, "/onClick botao entrar");
                 presenterLogin.verificaUsuario(
-                        etLogin.getText().toString(),
-                        etSenha.getText().toString()
+                        ((EditText)findViewById(R.id.etLoginLogin)).getText().toString(),
+                        ((EditText)findViewById(R.id.etSenhaLogin)).getText().toString()
                 );
             }
         });
