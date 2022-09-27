@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.presenter;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,13 +14,13 @@ public class PresenterContract {
     }
     //
     public interface presenterMain {
-        public void paraTelaLogin();
-        public void paraListPosts();
-        public void paraListComments();
-        public void paraListAlbuns();
-        public void paraListPhotos();
-        public void paraListTodos();
-        public void paraListUsers();
+        public void paraTelaLogin(Button TelaLogin);
+        public void paraListPosts(Button ListPost);
+        public void paraListComments(Button ListComment);
+        public void paraListAlbuns(Button ListAlbum);
+        public void paraListPhotos(Button ListPhoto);
+        public void paraListTodos(Button ListTodo);
+        public void paraListUsers(Button ListUser);
     }
     //
     public interface presenterLogin {
