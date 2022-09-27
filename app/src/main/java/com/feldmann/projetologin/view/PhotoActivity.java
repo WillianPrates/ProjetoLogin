@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.feldmann.projetologin.R;
 
-public class CommentActivity extends AppCompatActivity {
+public class PhotoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment);
+        setContentView(R.layout.activity_photo);
     }
 }
