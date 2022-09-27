@@ -13,21 +13,27 @@
         android:theme="@style/Theme.ProjetoLogin"
         tools:targetApi="31">
         <activity
-            android:name=".view.PerfilUserActivity"
-            android:label="Perfil do Usuario"
+            android:name=".CadastroActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
+        <activity
+            android:name=".view.PerfilUserActivity"
+            android:exported="false"
+            android:label="Perfil do Usuario"></activity>
         <activity
             android:name=".view.LoginActivity"
-            android:label="@string/TituloLoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:label="@string/TituloLoginActivity"></activity>
         <activity
             android:name=".view.MainActivity"
-            android:label="Tela Inicial"
-            android:exported="true">
+            android:exported="true"
+            android:label="Tela Inicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

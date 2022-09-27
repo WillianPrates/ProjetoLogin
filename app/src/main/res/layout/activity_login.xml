@@ -21,7 +21,7 @@
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="Login"
+            android:hint="@string/login"
             android:inputType="textPersonName" />
 
         <EditText
@@ -31,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="Senha"
+            android:hint="@string/senha"
             android:inputType="textPassword" />
 
         <Button

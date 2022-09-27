@@ -9,4 +9,7 @@
     <string name="tvIdUserPerfil">ID_USER</string>
     <string name="tvNomeUserPerfil">NOME_USUARIO</string>
     <string name="tvLoginUserPerfil">LOGIN_USER</string>
+    <!-- HINT -->
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
 </resources>
