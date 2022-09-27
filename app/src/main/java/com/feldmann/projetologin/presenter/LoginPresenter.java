@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.service.autofill.UserData;
 import android.util.Log;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.feldmann.projetologin.R;
+import com.feldmann.projetologin.adapters.UserAdapter;
 import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.repository.UserDataBase;
 import com.feldmann.projetologin.view.CadastroActivity;
@@ -47,5 +52,12 @@ public class LoginPresenter implements MainPresenter.presenterLogin{
     public void telaCadastro() {
         Intent intent = new Intent(view.getActivity(), CadastroActivity.class);
         view.getActivity().startActivity(intent);
+    }
+
+    @Override
+    public void setAdapterRV(RecyclerView rv) {
+        UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(view.getActivity()));
     }
 }

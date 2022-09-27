@@ -50,10 +50,8 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
             }
         });
         //
-        RecyclerView rv = (RecyclerView) findViewById(R.id.RVListaUsers);
-        UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        presenterLogin.setAdapterRV( ((RecyclerView) findViewById(R.id.RVListaUsers)) );
+        //
         logUsers();
         //
     }//fim onCreate

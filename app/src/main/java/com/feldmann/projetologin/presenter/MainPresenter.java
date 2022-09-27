@@ -3,6 +3,8 @@ package com.feldmann.projetologin.presenter;
 import android.app.Activity;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class MainPresenter {
     public interface view {
         public void message(String msg);
@@ -13,6 +15,7 @@ public class MainPresenter {
         public void verificaUsuario(String login, String senha);
         public void usuarioValido(String login);
         public void telaCadastro();
+        public void setAdapterRV(RecyclerView rv);
     }
     //
     public interface presenterPerfil {
