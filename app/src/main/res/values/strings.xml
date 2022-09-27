@@ -4,6 +4,7 @@
     <string name="TituloLoginActivity">Tela de Login</string>
     <!-- BOTOES -->
     <string name="btnEntrar">Entrar</string>
+    <string name="btnCadastro">Cadastrar</string>
     <!-- TEXTVIEWS -->
     <string name="tvIdUserPerfil">ID_USER</string>
     <string name="tvNomeUserPerfil">NOME_USUARIO</string>
