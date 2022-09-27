@@ -29,7 +29,6 @@ public class LoginPresenter implements MainPresenter.presenterLogin{
             }else{
                 // não é valido
                 Log.d(tagLog, tagLog+"/USUARIO NÃO É VALIDO");
-                view.message("USUARIO INVÁLIDO\nTENTE NOVAMENTE");
             }
         }//fim for
     }//fim metodo verificaUser

@@ -1,6 +1,7 @@
 package com.feldmann.projetologin.presenter;
 
 import android.app.Activity;
+import android.widget.TextView;
 
 public class MainPresenter {
     public interface view {
@@ -14,6 +15,6 @@ public class MainPresenter {
     }
     //
     public interface presenterPerfil {
-        public void mostraUser();
+        public void mostraUser(String login, TextView tvId, TextView tvNome, TextView tvLogin);
     }
 }

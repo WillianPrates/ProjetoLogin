@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         //
         this.presenterLogin = new LoginPresenter(this);
         //
+        //
         ((Button)findViewById(R.id.btEntrar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

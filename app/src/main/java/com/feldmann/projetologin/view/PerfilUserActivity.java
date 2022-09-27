@@ -8,29 +8,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.User;
+import com.feldmann.projetologin.presenter.LoginPresenter;
 import com.feldmann.projetologin.presenter.MainPresenter;
+import com.feldmann.projetologin.presenter.PerfilPresenter;
 import com.feldmann.projetologin.repository.UserDataBase;
 
 public class PerfilUserActivity extends AppCompatActivity implements MainPresenter.view  {
     private static final String tagLog = "PerfilUserActivity";
-
+    //
+    private MainPresenter.presenterPerfil presenterPerfil;
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_user);
         Log.d(tagLog, tagLog+"/onCreate");
+        this.presenterPerfil = new PerfilPresenter(this);
         //
-        TextView tvId = (TextView) findViewById(R.id.tvIdUser);
-        TextView tvNome = (TextView) findViewById(R.id.tvNomeUser);
-        TextView tvLogin = (TextView) findViewById(R.id.tvLoginUser);
-        //
-        String sLogin = getIntent().getStringExtra("LOGIN");
-        UserDataBase db = UserDataBase.getInstance();
-        User user = db.getUserByLogin(sLogin);
-        //
-        tvId.setText("ID: "+String.valueOf(user.getId()));
-        tvNome.setText("NOME: "+user.getNome());
-        tvLogin.setText("Login: "+user.getLogin());
+        presenterPerfil.mostraUser(
+                getIntent().getStringExtra("LOGIN"),
+                (TextView) findViewById(R.id.tvIdUser),
+                (TextView) findViewById(R.id.tvNomeUser),
+                (TextView) findViewById(R.id.tvLoginUser)
+        );
         //
     }//fim onCreate
     //
