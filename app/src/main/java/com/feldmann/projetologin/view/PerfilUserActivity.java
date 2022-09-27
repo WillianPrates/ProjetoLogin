@@ -39,4 +39,15 @@ public class PerfilUserActivity extends AppCompatActivity implements MainPresent
     //
     @Override
     public Activity getActivity() { return this; }
+
+    @Override
+    public void logUsers() {
+        for (int i=0;i<UserDataBase.getUsers().size();i++){
+            Log.d("users",
+                    "ID: "+Integer.toString(UserDataBase.getUsers().get(i).getId())+
+                            " | Nome: "+UserDataBase.getUsers().get(i).getNome().toString()+
+                            " | Login: "+UserDataBase.getUsers().get(i).getLogin().toString()
+            );
+        }
+    }
 }//fim class

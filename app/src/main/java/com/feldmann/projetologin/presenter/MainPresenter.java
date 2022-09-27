@@ -7,6 +7,7 @@ public class MainPresenter {
     public interface view {
         public void message(String msg);
         public Activity getActivity();
+        public void logUsers();
     }
     //
     public interface presenterLogin {

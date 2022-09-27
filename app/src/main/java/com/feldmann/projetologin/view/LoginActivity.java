@@ -1,6 +1,7 @@
 package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -12,9 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.feldmann.projetologin.R;
+import com.feldmann.projetologin.adapters.UserAdapter;
 import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.LoginPresenter;
 import com.feldmann.projetologin.presenter.MainPresenter;
+import com.feldmann.projetologin.repository.UserDataBase;
 
 public class LoginActivity extends AppCompatActivity implements MainPresenter.view {
     private static final String tagLog = "LoginActivity";
@@ -41,7 +44,9 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         //
         //                    CODIGO PROVISORIO
         RecyclerView rv = (RecyclerView) findViewById(R.id.RVListaUsers);
+        UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
         rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
         //
     }//fim onCreate
 
@@ -51,5 +56,16 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
     @Override
     public Activity getActivity() {
         return this;
+    }
+
+    @Override
+    public void logUsers() {
+        for (int i=0;i<UserDataBase.getUsers().size();i++){
+            Log.d("users",
+                    "ID: "+Integer.toString(UserDataBase.getUsers().get(i).getId())+
+                            " | Nome: "+UserDataBase.getUsers().get(i).getNome().toString()+
+                            " | Login: "+UserDataBase.getUsers().get(i).getLogin().toString()
+            );
+        }
     }
 }//fim class
