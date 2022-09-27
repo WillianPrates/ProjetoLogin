@@ -40,7 +40,6 @@ public class PerfilUserActivity extends AppCompatActivity implements MainPresent
     @Override
     public Activity getActivity() { return this; }
 
-    @Override
     public void logUsers() {
         for (int i=0;i<UserDataBase.getUsers().size();i++){
             Log.d("users",

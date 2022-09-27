@@ -5,7 +5,9 @@ import android.util.Log;
 
 import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.MainPresenter;
+import com.feldmann.projetologin.view.CadastroActivity;
 import com.feldmann.projetologin.view.LoginActivity;
+import com.feldmann.projetologin.view.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 public class UserDataBase {
     private static final String tagLog = "UserDataBase";
     private MainPresenter.view view;
+    public UserDataBase(MainPresenter.view view) { this.view = view; }
     //
     private static List<User> users;
     private static UserDataBase instance = null;
@@ -32,9 +35,9 @@ public class UserDataBase {
     public static List<User> getUsers(){ return users; }
     //
     public static UserDataBase getInstance() {
-        if (instance == null) {
-        instance = new UserDataBase();
-        }
+        //if (instance == null) {
+            instance = new UserDataBase();
+        //}
         return instance;
     }
     //
@@ -49,11 +52,4 @@ public class UserDataBase {
         return ret;
     }//fim metodo
 
-    public void criarUser(String nome, String login, String senha){
-        Log.d(tagLog, tagLog+"/criarUser");
-        //
-        users.add(new User(getUsers().size()+1, nome, login, senha));
-
-        view.message("USUARIO CRIADO");
-    }
 }//fim classe

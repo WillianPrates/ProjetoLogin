@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.adapters.UserAdapter;
-import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.LoginPresenter;
 import com.feldmann.projetologin.presenter.MainPresenter;
 import com.feldmann.projetologin.repository.UserDataBase;
@@ -47,8 +46,7 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
             @Override
             public void onClick(View v) {
                 Log.d(tagLog, "/onClick botao para tela cadastro");
-                Intent intent = new Intent(getActivity(), CadastroActivity.class);
-                startActivity(intent);
+                presenterLogin.telaCadastro();
             }
         });
         //
@@ -56,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        logUsers();
         //
     }//fim onCreate
 
@@ -73,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         return this;
     }
 
-    @Override
+
     public void logUsers() {
         for (int i=0;i<UserDataBase.getUsers().size();i++){
             Log.d("users",

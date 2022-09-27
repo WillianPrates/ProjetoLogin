@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.repository.UserDataBase;
+import com.feldmann.projetologin.view.CadastroActivity;
 import com.feldmann.projetologin.view.PerfilUserActivity;
 
 public class LoginPresenter implements MainPresenter.presenterLogin{
@@ -40,5 +41,11 @@ public class LoginPresenter implements MainPresenter.presenterLogin{
         intent.putExtra("LOGIN", login);
         view.getActivity().startActivity(intent);
         view.message("USUARIO VÁLIDO");
+    }
+
+    @Override
+    public void telaCadastro() {
+        Intent intent = new Intent(view.getActivity(), CadastroActivity.class);
+        view.getActivity().startActivity(intent);
     }
 }
