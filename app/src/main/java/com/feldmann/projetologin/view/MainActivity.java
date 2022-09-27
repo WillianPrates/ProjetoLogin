@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.User;
+import com.feldmann.projetologin.repository.UserDataBase;
 import com.feldmann.projetologin.view.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(tagLog, tagLog+"/onCreate");
         //
-        User.getUsers().get(0);
+        UserDataBase.getInstance();
         this.paraTelaLogin();
     }
 

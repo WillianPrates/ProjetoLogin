@@ -11,7 +11,7 @@ public class User {
     private String login;
     private String senha;
     //
-    private static List<User> users;
+
     //
     public User(int id, String nome, String login, String senha) {
         this.id = id;
@@ -31,17 +31,5 @@ public class User {
     //
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
-    //
-    public static List<User> getUsers(){
-        if (users == null) {
-            users = new ArrayList<>();
-            users.add(new User(1, "fabio1", "fbo1", "senha1"));
-            users.add(new User(2, "fabio2", "fbo2", "senha2"));
-            users.add(new User(3, "fabio3", "fbo3", "senha3"));
-            users.add(new User(4, "fabio4", "fbo4", "senha4"));
-            Log.d("User", "usuarios criados");
-        }
-        return users;
-    }
     //
 }

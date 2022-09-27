@@ -1,18 +1,15 @@
 package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.feldmann.projetologin.R;
+import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.MainPresenter;
-
-import org.w3c.dom.Text;
+import com.feldmann.projetologin.repository.UserDataBase;
 
 public class PerfilUserActivity extends AppCompatActivity implements MainPresenter.view  {
     private static final String tagLog = "PerfilUserActivity";
@@ -27,7 +24,14 @@ public class PerfilUserActivity extends AppCompatActivity implements MainPresent
         TextView tvNome = (TextView) findViewById(R.id.tvNomeUser);
         TextView tvLogin = (TextView) findViewById(R.id.tvLoginUser);
         //
-        tvLogin.setText(getIntent().getStringExtra("LOGIN"));
+        String sLogin = getIntent().getStringExtra("LOGIN");
+        UserDataBase db = UserDataBase.getInstance();
+        User user = db.getUserByLogin(sLogin);
+        //
+        String id = user.getId()
+        tvId.setText(user.getId());
+        tvNome.setText(user.getNome());
+        tvLogin.setText(user.getLogin());
         //
     }//fim onCreate
     //
