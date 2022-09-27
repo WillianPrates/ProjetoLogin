@@ -39,17 +39,10 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 }//fim class
 //
-class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+class UserViewHolder extends RecyclerView.ViewHolder{
     public View view;
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
         view = itemView;
-        itemView.setOnClickListener(this);
     }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-    //
 }
