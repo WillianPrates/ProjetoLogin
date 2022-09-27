@@ -2,6 +2,8 @@
     <!-- TITULOS ACTIVITY -->
     <string name="app_name">ProjetoLogin</string>
     <string name="TituloLoginActivity">Tela de Login</string>
+    <string name="TituloCadastroActivity">Tela de Cadastro</string>
+    <string name="TituloPerfilActivity">Perfil do Usuario</string>
     <!-- BOTOES -->
     <string name="btnEntrar">Entrar</string>
     <string name="btnCadastro">Cadastrar</string>

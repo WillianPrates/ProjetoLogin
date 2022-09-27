@@ -10,6 +10,11 @@ public class MainPresenter {
         public void logUsers();
     }
     //
+    public interface presenterDataBase {
+        public void telaCadastro();
+        public void criarUsuario(String nome, String login, String senha);
+    }
+    //
     public interface presenterLogin {
         public void verificaUsuario(String login, String senha);
         public void usuarioValido(String login);

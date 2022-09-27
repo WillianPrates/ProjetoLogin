@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         ((Button)findViewById(R.id.btEntrar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(tagLog, "/onClick botao entrar");
+                Log.d(tagLog, "/onClick botao login");
                 presenterLogin.verificaUsuario(
                         ((EditText)findViewById(R.id.etLoginLogin)).getText().toString(),
                         ((EditText)findViewById(R.id.etSenhaLogin)).getText().toString()
@@ -42,13 +43,27 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
             }
         });
         //
-        //                    CODIGO PROVISORIO
+        ((Button)findViewById(R.id.btTelaCadastro)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(tagLog, "/onClick botao para tela cadastro");
+                Intent intent = new Intent(getActivity(), CadastroActivity.class);
+                startActivity(intent);
+            }
+        });
+        //
         RecyclerView rv = (RecyclerView) findViewById(R.id.RVListaUsers);
         UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
         //
     }//fim onCreate
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(tagLog, tagLog+"/onResume");
+    }
 
     @Override
     public void message(String msg) { Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); }
