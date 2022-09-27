@@ -1,6 +1,7 @@
 package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,7 +28,6 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
         //
         this.presenterLogin = new LoginPresenter(this);
         //
-        //
         ((Button)findViewById(R.id.btEntrar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +38,11 @@ public class LoginActivity extends AppCompatActivity implements MainPresenter.vi
                 );
             }
         });
+        //
+        //                    CODIGO PROVISORIO
+        RecyclerView rv = (RecyclerView) findViewById(R.id.RVListaUsers);
+        rv.setAdapter(adapter);
+        //
     }//fim onCreate
 
     @Override
