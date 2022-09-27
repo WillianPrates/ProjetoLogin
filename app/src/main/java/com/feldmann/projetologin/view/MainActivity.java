@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(tagLog, tagLog+"/onCreate");
         //
-        UserDataBase.getInstance();
+        UserDataBase.getInstance(this);
         this.paraTelaLogin();
     }
 

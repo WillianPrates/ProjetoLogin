@@ -1,17 +1,10 @@
 package com.feldmann.projetologin.model;
 
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
     private int id;
     private String nome;
     private String login;
     private String senha;
-    //
-
     //
     public User(int id, String nome, String login, String senha) {
         this.id = id;

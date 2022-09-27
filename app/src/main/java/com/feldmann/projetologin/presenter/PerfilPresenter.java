@@ -13,7 +13,7 @@ public class PerfilPresenter implements MainPresenter.presenterPerfil{
     @Override
     public void mostraUser(String login, TextView tvId, TextView tvNome, TextView tvLogin) {
 
-        UserDataBase db = UserDataBase.getInstance();
+        UserDataBase db = UserDataBase.getInstance(view.getActivity());
         User user = db.getUserByLogin(login);
         //
         tvId.setText("ID: "+String.valueOf(user.getId()));
