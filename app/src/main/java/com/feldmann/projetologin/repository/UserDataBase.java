@@ -64,8 +64,6 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
     //
     @Override
     public void onResponse(JSONArray response) {
-        //
-        response.length();
         for (int i=0;i<response.length();i++){
             try {
                 JSONObject json = response.getJSONObject(i);

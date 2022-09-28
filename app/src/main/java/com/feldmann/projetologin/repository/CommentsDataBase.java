@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "CommentsDB";
+    private static final String tagLog = "CommentsDataBase";
     //
     private static List<Comments> comments;
     private static CommentsDataBase instance = null;
@@ -49,7 +49,6 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
     //
     @Override
     public void onResponse(JSONArray response) {
-        response.length();
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);

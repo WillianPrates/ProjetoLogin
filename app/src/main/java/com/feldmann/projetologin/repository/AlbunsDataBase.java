@@ -2,43 +2,46 @@ package com.feldmann.projetologin.repository;
 
 import android.content.Context;
 import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.feldmann.projetologin.model.Posts;
+import com.feldmann.projetologin.model.Albuns;
+import com.feldmann.projetologin.model.Comments;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "PostsDataBase";
+public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "AlbunsDataBase";
     //
-    private static List<Posts> posts;
-    private static PostsDataBase instance = null;
+    private static List<Albuns> albuns;
+    private static AlbunsDataBase instance = null;
     //
-    private PostsDataBase(Context context){
+    private AlbunsDataBase(Context context){
         super();
-        if (posts == null){
-            posts = new ArrayList<>();
+        if (albuns == null){
+            albuns = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
-            String url = "https://jsonplaceholder.typicode.com/posts";
+            String url = "https://jsonplaceholder.typicode.com/albums";
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
-                    null, this, this);
+                    null, this, this );
             queue.add(jaRequest);
-            //
-        }//fim if
-    }//fim postsDB
+        }
+    }
     //
-    public static List<Posts> getPosts() { return posts; }
+    public List<Albuns> getAlbuns() { return albuns; }
     //
-    public static PostsDataBase getInstance(Context context){
-        instance = new PostsDataBase(context);
+    public static  AlbunsDataBase getInstance(Context context){
+        instance = new AlbunsDataBase(context);
         return instance;
     }
     //
@@ -52,12 +55,11 @@ public class PostsDataBase implements Response.Listener<JSONArray>, Response.Err
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);
-                posts.add( new Posts(
+                albuns.add( new Albuns(
                         json.getInt("userId"),
                         json.getInt("id"),
-                        json.getString("title"),
-                        json.getString("body")
-                )/* fim new posts */ ); //fim add
+                        json.getString("title")
+                )/* fim new albuns */ ); //fim add
             }catch (JSONException e){
                 e.printStackTrace();
             }//fim try catch
