@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="10dp">
 
     <LinearLayout
-        android:id="@+id/LLRVUser"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/azul"
         android:orientation="vertical"
         android:padding="15dp"
@@ -16,16 +15,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/tvNomeUserRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/pipe"
+            android:text="@string/tvNomeUserPerfil"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
         <RelativeLayout
             android:id="@+id/RLRVUser"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvIdUserRV"
+                android:id="@+id/tvIdPostRV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tvIdUserPerfil"
+                android:text="@string/tvIdPostList"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -34,29 +42,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/tvIdUserRV"
+                android:layout_toEndOf="@id/tvIdPostRV"
                 android:text=" | "
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/tvNomeUserRV"
+                android:id="@+id/tvTituloPostRV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/pipe"
-                android:text="@string/tvNomeUserPerfil"
+                android:text="@string/tvTituloPost"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tvLoginUserRV"
+            android:id="@+id/tvBodyPostRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tvLoginUserPerfil"
+            android:text="@string/tvBodyPost"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
