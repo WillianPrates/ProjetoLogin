@@ -31,7 +31,6 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
                     Request.Method.GET, url,
                     null, this, this);
             queue.add(jaRequest);
-            //
         }//fim if
     }//fim postsDB
     //
