@@ -3,8 +3,6 @@ package com.feldmann.projetologin.presenter;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-
-import com.feldmann.projetologin.model.Albuns;
 import com.feldmann.projetologin.view.AlbumActivity;
 import com.feldmann.projetologin.view.CommentActivity;
 import com.feldmann.projetologin.view.LoginActivity;

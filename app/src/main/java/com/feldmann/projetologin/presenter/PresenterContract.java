@@ -39,4 +39,9 @@ public class PresenterContract {
         public void criarUsuario(String nome, String login, String senha);
     }
     //
+    public interface presenterLists {
+        public void setAdapterRVUsers(RecyclerView rv);
+        //
+    }
+    //
 }

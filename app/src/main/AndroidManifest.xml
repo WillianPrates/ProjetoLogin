@@ -15,46 +15,34 @@
         android:theme="@style/Theme.ProjetoLogin"
         tools:targetApi="31">
         <activity
-            android:name=".UserActivity"
+            android:name=".view.UserActivity"
+            android:label="@string/btnListUsers"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
-            android:name=".TodosActivity"
+            android:name=".view.TodosActivity"
+            android:label="@string/btnListTodos"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
-            android:name=".PhotoActivity"
+            android:name=".view.PhotoActivity"
+            android:label="@string/btnListPhotos"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
-            android:name=".CommentActivity"
+            android:name=".view.CommentActivity"
+            android:label="@string/btnListComments"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
-            android:name=".AlbumActivity"
+            android:name=".view.AlbumActivity"
+            android:label="@string/btnListAlbuns"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
-            android:name=".PostsActivity"
+            android:name=".view.PostsActivity"
+            android:label="@string/btnListPosts"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".view.CadastroActivity"

@@ -1,9 +1,16 @@
 <resources>
-    <!-- TITULOS ACTIVITY -->
     <string name="app_name">ProjetoLogin</string>
+    <!-- TITULOS ACTIVITY -->
     <string name="TituloLoginActivity">Tela de Login</string>
     <string name="TituloCadastroActivity">Tela de Cadastro</string>
     <string name="TituloPerfilActivity">Perfil do Usuario</string>
+    <!---->
+    <string name="TituloListPosts">Lista dos Posts</string>
+    <string name="TituloListComments">Lista dos Comentários</string>
+    <string name="TituloListAlbuns">Lista de Albuns</string>
+    <string name="TituloListPhotos">Lista de Photos</string>
+    <string name="TituloListTodos">Lista de Todos</string>
+    <string name="TituloListUsers">Lista de Usuarios</string>
     <!-- BOTOES -->
     <string name="btnEntrar">Entrar</string>
     <string name="btnCadastro">Cadastrar</string>
