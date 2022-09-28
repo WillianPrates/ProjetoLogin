@@ -47,10 +47,6 @@ public class LoginActivity extends AppCompatActivity implements PresenterContrac
             }
         });
         //
-        presenterLogin.setAdapterRV( ((RecyclerView) findViewById(R.id.RVListaUsers)) );
-        //
-        logUsers();
-        //
     }//fim onCreate
 
     @Override
