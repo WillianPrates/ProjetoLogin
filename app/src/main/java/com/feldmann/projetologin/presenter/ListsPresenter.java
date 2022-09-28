@@ -5,7 +5,9 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.feldmann.projetologin.adapters.PostAdapter;
 import com.feldmann.projetologin.adapters.UserAdapter;
+import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
 
 public class ListsPresenter implements PresenterContract.presenterLists{
@@ -17,6 +19,9 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVPosts(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVPosts");
+        PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts());
+        rv.setAdapter(adapterPost);
+        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
     //
     @Override
@@ -42,8 +47,8 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVUsers(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVUsers");
-        UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
-        rv.setAdapter(adapter);
+        UserAdapter adapterUser = new UserAdapter(UserDataBase.getUsers());
+        rv.setAdapter(adapterUser);
         rv.setLayoutManager(new LinearLayoutManager(view.getActivity()));
     }
     //
