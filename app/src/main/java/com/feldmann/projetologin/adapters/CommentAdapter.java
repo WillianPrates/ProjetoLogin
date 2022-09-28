@@ -29,11 +29,11 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         //
         Comments objComment = dadosComments.get(position);
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvPostID)).setText("Post ID: "+Integer.toString(objComment.getPostID()));
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvCommentID)).setText("Comment ID: "+Integer.toString(objComment.getId()));
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvCommentName)).setText("Nome: "+objComment.getName());
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvCommentEmail)).setText("Email: "+objComment.getEmail());
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvCommentBody)).setText(" "+objComment.getBody());
+        ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvPostID)).setText("Post ID: "+Integer.toString(objComment.getPostID()));
+        ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvCommentID)).setText("Comment ID: "+Integer.toString(objComment.getId()));
+        ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvCommentName)).setText("Nome: "+objComment.getName());
+        ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvCommentEmail)).setText("Email: "+objComment.getEmail());
+        ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvCommentBody)).setText(" "+objComment.getBody());
     }
     //
     @Override

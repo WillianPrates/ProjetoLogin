@@ -40,8 +40,8 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
 
     @Override
-    public void paraListComments(Button ListComment) {
-        ListComment.setOnClickListener(new View.OnClickListener() {
+    public void paraListComments(Button btnListComment) {
+        btnListComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), CommentActivity.class);
@@ -51,8 +51,8 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
 
     @Override
-    public void paraListAlbuns(Button ListAlbum) {
-        ListAlbum.setOnClickListener(new View.OnClickListener() {
+    public void paraListAlbuns(Button btnListAlbum) {
+        btnListAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), AlbumActivity.class);
@@ -62,8 +62,8 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
 
     @Override
-    public void paraListPhotos(Button ListPhoto) {
-        ListPhoto.setOnClickListener(new View.OnClickListener() {
+    public void paraListPhotos(Button btnListPhoto) {
+        btnListPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), PhotoActivity.class);
@@ -73,8 +73,8 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
 
     @Override
-    public void paraListTodos(Button ListTodo) {
-        ListTodo.setOnClickListener(new View.OnClickListener() {
+    public void paraListTodos(Button btnListTodo) {
+        btnListTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), TodosActivity.class);
@@ -84,8 +84,8 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
 
     @Override
-    public void paraListUsers(Button ListUser) {
-        ListUser.setOnClickListener(new View.OnClickListener() {
+    public void paraListUsers(Button btnListUser) {
+        btnListUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), UserActivity.class);

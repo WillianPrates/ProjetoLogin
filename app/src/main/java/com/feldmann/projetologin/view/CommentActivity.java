@@ -10,7 +10,7 @@ import com.feldmann.projetologin.presenter.ListsPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
 
 public class CommentActivity extends AppCompatActivity implements PresenterContract.view{
-    private static final String tagLog = "PostsActivity";
+    private static final String tagLog = "CommentActivity";
     private PresenterContract.presenterLists presenterLists;
     //
     @Override
@@ -20,7 +20,7 @@ public class CommentActivity extends AppCompatActivity implements PresenterContr
         Log.d(tagLog, tagLog+"/onCreate");
         this.presenterLists = new ListsPresenter(this);
         //
-        presenterLists.setAdapterRVPosts( ((RecyclerView) findViewById(R.id.RVComments)) );
+        presenterLists.setAdapterRVComments( ((RecyclerView) findViewById(R.id.RVComments)) );
         //
     }
     //
