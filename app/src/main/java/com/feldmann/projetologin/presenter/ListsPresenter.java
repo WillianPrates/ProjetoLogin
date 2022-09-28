@@ -5,10 +5,14 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.feldmann.projetologin.adapters.CommentAdapter;
 import com.feldmann.projetologin.adapters.PostAdapter;
 import com.feldmann.projetologin.adapters.UserAdapter;
+import com.feldmann.projetologin.repository.CommentsDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
+
+import org.w3c.dom.Comment;
 
 public class ListsPresenter implements PresenterContract.presenterLists{
     private static final String tagLog = "ListsPresenter";
@@ -27,6 +31,9 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVComments(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVComments");
+        CommentAdapter adapterComment = new CommentAdapter(CommentsDataBase.getComments());
+        rv.setAdapter(adapterComment);
+        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
     //
     @Override
