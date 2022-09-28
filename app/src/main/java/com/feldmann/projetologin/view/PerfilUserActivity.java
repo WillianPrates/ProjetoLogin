@@ -24,7 +24,7 @@ public class PerfilUserActivity extends AppCompatActivity implements PresenterCo
         this.presenterPerfil = new PerfilPresenter(this);
         //
         presenterPerfil.mostraUser(
-                getIntent().getStringExtra("LOGIN"),
+                getIntent().getParcelableExtra("USER_OBJECT"),
                 (TextView) findViewById(R.id.tvIdUser),
                 (TextView) findViewById(R.id.tvNomeUser),
                 (TextView) findViewById(R.id.tvLoginUser)

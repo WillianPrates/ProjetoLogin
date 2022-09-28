@@ -11,11 +11,7 @@ public class PerfilPresenter implements PresenterContract.presenterPerfil{
     private PresenterContract.view view;
     public PerfilPresenter(PresenterContract.view view) { this.view = view; }
     @Override
-    public void mostraUser(String login, TextView tvId, TextView tvNome, TextView tvLogin) {
-
-        UserDataBase db = UserDataBase.getInstance(view.getActivity());
-        User user = db.getUserByLogin(login);
-        //
+    public void mostraUser(User user, TextView tvId, TextView tvNome, TextView tvLogin) {
         tvId.setText("ID: "+String.valueOf(user.getId()));
         tvNome.setText("NOME: "+user.getNome());
         tvLogin.setText("Login: "+user.getLogin());

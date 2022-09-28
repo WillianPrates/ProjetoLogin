@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.feldmann.projetologin.adapters.UserAdapter;
+import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.repository.UserDataBase;
 import com.feldmann.projetologin.view.CadastroActivity;
 import com.feldmann.projetologin.view.PerfilUserActivity;
@@ -23,11 +24,12 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
         //
         String sLogin, sSenha;
         for (int i = 0; i< UserDataBase.getUsers().size(); i++){
+            User user = UserDataBase.getUsers().get(i);
             sLogin = UserDataBase.getUsers().get(i).getLogin();
             sSenha = UserDataBase.getUsers().get(i).getSenha();
             //
             if (sLogin.equals(login) && sSenha.equals(senha)){
-                this.usuarioValido(sLogin);
+                this.usuarioValido(user);
                 break;
             }else{
                 // não é valido
@@ -37,10 +39,10 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
     }//fim metodo verificaUser
     //
     @Override
-    public void usuarioValido(String login) {
+    public void usuarioValido(User user) {
         Log.d(tagLog, tagLog+"/USUARIO É VALIDO");;
         Intent intent = new Intent(view.getActivity(), PerfilUserActivity.class);
-        intent.putExtra("LOGIN", login);
+        intent.putExtra("USER_OBJECT", user);
         view.getActivity().startActivity(intent);
         view.message("USUARIO VÁLIDO");
     }

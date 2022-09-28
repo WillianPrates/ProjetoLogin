@@ -1,6 +1,9 @@
 package com.feldmann.projetologin.model;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable {
     private int id;
     private String nome;
     private String login;
@@ -13,6 +16,21 @@ public class User {
         this.senha = senha;
     }
     //
+    protected User(Parcel in){
+        id = in.readInt();
+        nome = in.readString();
+        login = in.readString();
+        senha = in.readString();
+    }
+    //
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) { return new User(source); }
+        //
+        @Override
+        public User[] newArray(int size) { return new User[size]; }
+    };
+    //
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     //
@@ -24,5 +42,16 @@ public class User {
     //
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
+
+    @Override
+    public int describeContents() { return 0; }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nome);
+        dest.writeString(login);
+        dest.writeString(senha);
+    }
     //
 }

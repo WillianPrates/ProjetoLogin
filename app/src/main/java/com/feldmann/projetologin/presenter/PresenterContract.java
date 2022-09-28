@@ -1,12 +1,11 @@
 package com.feldmann.projetologin.presenter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.feldmann.projetologin.model.User;
+//
 public class PresenterContract {
     public interface view {
         public void message(String msg);
@@ -25,12 +24,12 @@ public class PresenterContract {
     //
     public interface presenterLogin {
         public void verificaUsuario(String login, String senha);
-        public void usuarioValido(String login);
+        public void usuarioValido(User user);
         public void telaCadastro();
     }
     //
     public interface presenterPerfil {
-        public void mostraUser(String login, TextView tvId, TextView tvNome, TextView tvLogin);
+        public void mostraUser(User user, TextView tvId, TextView tvNome, TextView tvLogin);
     }
     //
     public interface presenterCadastro {
