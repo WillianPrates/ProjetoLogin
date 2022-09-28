@@ -41,7 +41,8 @@ public class PresenterContract {
     //
     public interface presenterLists {
         public void setAdapterRVUsers(RecyclerView rv);
-        //
+        // criar repositorios e adapters para cada um das views
+        // e colocar aqui os setadapters pra cada um deles
     }
     //
 }
