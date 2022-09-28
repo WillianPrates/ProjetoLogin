@@ -84,7 +84,7 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
     @Override
     public void onErrorResponse(VolleyError error) {
         //
-        Log.d(tagLog, tagLog+"/"+error.getMessage());
+        Log.e(tagLog, tagLog+"/"+error.getMessage());
     }//fim onErrorResponse
 
 }//fim classe
