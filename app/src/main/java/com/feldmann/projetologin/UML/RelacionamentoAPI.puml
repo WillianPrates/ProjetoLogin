@@ -1,27 +1,46 @@
-@startuml
-'https://plantuml.com/class-diagram
+@startuml Relacionamento das APIs
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+User --> Posts
+User --> Albuns
+User --> Todos
+Posts --> Comments
+Albuns --> Photos
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Posts{
+    - userID
+    - id
+    - titulo
+    - body
 }
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Comments{
+    - postID
+    - id
+    - nome
+    - email
+    - body
 }
-
+class Albuns{
+    - userID
+    - id
+    - titulo
+}
+class Photos{
+    - albumID
+    - id
+    - titulo
+    - url
+    - thumbnailURL
+}
+class Todos{
+    - userID
+    - id
+    - titulo
+    - completed
+}
+class User{
+    - id
+    - nome
+    - login
+    - senha
+}
 @enduml
