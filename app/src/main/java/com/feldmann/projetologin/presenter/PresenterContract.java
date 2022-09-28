@@ -27,7 +27,6 @@ public class PresenterContract {
         public void verificaUsuario(String login, String senha);
         public void usuarioValido(String login);
         public void telaCadastro();
-        public void setAdapterRV(RecyclerView rv);
     }
     //
     public interface presenterPerfil {
@@ -40,6 +39,11 @@ public class PresenterContract {
     }
     //
     public interface presenterLists {
+        public void setAdapterRVPosts(RecyclerView rv);
+        public void setAdapterRVComments(RecyclerView rv);
+        public void setAdapterRVAlbuns(RecyclerView rv);
+        public void setAdapterRVPhotos(RecyclerView rv);
+        public void setAdapterRVTodos(RecyclerView rv);
         public void setAdapterRVUsers(RecyclerView rv);
         // criar repositorios e adapters para cada um das views
         // e colocar aqui os setadapters pra cada um deles

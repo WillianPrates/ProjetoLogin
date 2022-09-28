@@ -50,11 +50,4 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
         Intent intent = new Intent(view.getActivity(), CadastroActivity.class);
         view.getActivity().startActivity(intent);
     }
-
-    @Override
-    public void setAdapterRV(RecyclerView rv) {
-        UserAdapter adapter = new UserAdapter(UserDataBase.getUsers());
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(view.getActivity()));
-    }
 }
