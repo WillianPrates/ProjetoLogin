@@ -1,6 +1,7 @@
 package com.feldmann.projetologin.adapters;
 
 import android.service.autofill.UserData;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.Posts;
+import com.feldmann.projetologin.repository.UserDataBase;
 
 import java.util.List;
 
@@ -29,8 +31,9 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        //position é o id do post
+        //
         Posts objPost = dadosPosts.get(position);
-        //String nomeUser = UserDataBase.getUsers().get(position).getNome();
         String intIDUser = Integer.toString(objPost.getUserID());
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvNomeUserPostRV)).setText("User: "+intIDUser);
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvIdPostRV)).setText("ID: "+Integer.toString(objPost.getId() ) );
