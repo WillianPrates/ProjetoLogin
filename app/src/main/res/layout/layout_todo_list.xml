@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
@@ -8,32 +9,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/azul"
+        android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvNomeUserPostRV"
+            android:id="@+id/tvIdUserTodo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/pipe"
-            android:text="@string/tvNomeUserPerfil"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="texto" />
 
         <RelativeLayout
-            android:id="@+id/RLRVUser"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvIdPostRV"
+                android:id="@+id/tvIdTodo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tvIdPostList"
+                android:text="texto"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -42,28 +41,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/tvIdPostRV"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@id/tvIdTodo"
                 android:text=" | "
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/tvTituloPostRV"
+                android:id="@+id/tvTitleTodo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:text="texto"
                 android:layout_toEndOf="@id/pipe"
-                android:text="@string/tvTituloPost"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tvBodyPostRV"
-            android:layout_width="match_parent"
+            android:id="@+id/tvCompleteTodo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tvBodyPost"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:text="texto" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

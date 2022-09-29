@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.feldmann.projetologin.adapters.CommentAdapter;
 import com.feldmann.projetologin.adapters.PostAdapter;
+import com.feldmann.projetologin.adapters.TodoAdapter;
 import com.feldmann.projetologin.adapters.UserAdapter;
 import com.feldmann.projetologin.repository.CommentsDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
+import com.feldmann.projetologin.repository.TodosDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
 
 import org.w3c.dom.Comment;
@@ -49,6 +51,10 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVTodos(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVTodos");
+        TodoAdapter adapterTodo = new TodoAdapter(TodosDataBase.getTodos());
+        rv.setAdapter(adapterTodo);
+        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
+
     }
     //
     @Override

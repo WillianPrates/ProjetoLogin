@@ -15,6 +15,7 @@ import com.feldmann.projetologin.presenter.MainPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.repository.CommentsDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
+import com.feldmann.projetologin.repository.TodosDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
 
 public class MainActivity extends AppCompatActivity implements PresenterContract.view {
@@ -26,9 +27,12 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(tagLog, tagLog+"/onCreate");
-        UserDataBase.getInstance(this);
         PostsDataBase.getInstance(this);
         CommentsDataBase.getInstance(this);
+        //
+        //
+        TodosDataBase.getInstance(this);
+        UserDataBase.getInstance(this);
         this.presenterMain = new MainPresenter(this);
         //
     }
