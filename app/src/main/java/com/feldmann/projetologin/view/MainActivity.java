@@ -1,18 +1,14 @@
 package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-
 import com.feldmann.projetologin.R;
-import com.feldmann.projetologin.presenter.LoginPresenter;
 import com.feldmann.projetologin.presenter.MainPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
+import com.feldmann.projetologin.repository.AlbunsDataBase;
 import com.feldmann.projetologin.repository.CommentsDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.TodosDataBase;
@@ -29,8 +25,8 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
         Log.d(tagLog, tagLog+"/onCreate");
         PostsDataBase.getInstance(this);
         CommentsDataBase.getInstance(this);
-        //
-        //
+        AlbunsDataBase.getInstance(this);
+        //PhotosDataBase.getInstance(this);
         TodosDataBase.getInstance(this);
         UserDataBase.getInstance(this);
         this.presenterMain = new MainPresenter(this);

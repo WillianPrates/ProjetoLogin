@@ -25,7 +25,6 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        //
         Comments objComment = dadosComments.get(position);
         ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvPostID)).setText("Post ID: "+Integer.toString(objComment.getPostID()));
         ((TextView)((CommentViewHolder) holder).view.findViewById(R.id.tvCommentID)).setText("Comment ID: "+Integer.toString(objComment.getId()));

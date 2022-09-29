@@ -38,7 +38,7 @@ public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.Er
         }
     }
     //
-    public List<Albuns> getAlbuns() { return albuns; }
+    public static List<Albuns> getAlbuns() { return albuns; }
     //
     public static  AlbunsDataBase getInstance(Context context){
         instance = new AlbunsDataBase(context);

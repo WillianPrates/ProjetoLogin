@@ -5,10 +5,12 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.feldmann.projetologin.adapters.AlbumAdapter;
 import com.feldmann.projetologin.adapters.CommentAdapter;
 import com.feldmann.projetologin.adapters.PostAdapter;
 import com.feldmann.projetologin.adapters.TodoAdapter;
 import com.feldmann.projetologin.adapters.UserAdapter;
+import com.feldmann.projetologin.repository.AlbunsDataBase;
 import com.feldmann.projetologin.repository.CommentsDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.TodosDataBase;
@@ -41,6 +43,9 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVAlbuns(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVAlbuns");
+        AlbumAdapter adapterAlbum = new AlbumAdapter(AlbunsDataBase.getAlbuns());
+        rv.setAdapter(adapterAlbum);
+        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
     //
     @Override
