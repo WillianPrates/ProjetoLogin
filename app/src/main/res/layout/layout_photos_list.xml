@@ -58,6 +58,7 @@
             android:id="@+id/image600"
             android:layout_width="600px"
             android:layout_height="600px"
+            android:layout_marginTop="10dp"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 

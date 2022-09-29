@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.feldmann.projetologin.R;
-import com.feldmann.projetologin.model.Posts;
 import com.feldmann.projetologin.model.Todos;
 
 import java.util.List;

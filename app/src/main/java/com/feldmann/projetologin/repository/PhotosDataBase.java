@@ -34,6 +34,7 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
                     null, this, this);
+            queue.add(jaRequest);
         }
     }
     //

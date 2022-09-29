@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.feldmann.projetologin.adapters.AlbumAdapter;
 import com.feldmann.projetologin.adapters.CommentAdapter;
+import com.feldmann.projetologin.adapters.PhotoAdapter;
 import com.feldmann.projetologin.adapters.PostAdapter;
 import com.feldmann.projetologin.adapters.TodoAdapter;
 import com.feldmann.projetologin.adapters.UserAdapter;
 import com.feldmann.projetologin.repository.AlbunsDataBase;
 import com.feldmann.projetologin.repository.CommentsDataBase;
+import com.feldmann.projetologin.repository.PhotosDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.TodosDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
@@ -51,6 +53,9 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVPhotos(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVPhotos");
+        PhotoAdapter adapterPhoto = new PhotoAdapter(PhotosDataBase.getPhotos());
+        rv.setAdapter(adapterPhoto);
+        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
     //
     @Override

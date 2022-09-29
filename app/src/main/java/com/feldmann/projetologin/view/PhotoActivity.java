@@ -22,7 +22,7 @@ public class PhotoActivity extends AppCompatActivity implements PresenterContrac
         Log.d(tagLog, tagLog+"/onCreate");
         this.presenterLists = new ListsPresenter(this);
         //
-        presenterLists.setAdapterRVPosts( ((RecyclerView) findViewById(R.id.RVPhotos)) );
+        presenterLists.setAdapterRVPhotos( ((RecyclerView) findViewById(R.id.RVPhotos)) );
         //
     }
 
