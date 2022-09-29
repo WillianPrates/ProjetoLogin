@@ -10,6 +10,7 @@ import com.feldmann.projetologin.presenter.MainPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.repository.AlbunsDataBase;
 import com.feldmann.projetologin.repository.CommentsDataBase;
+import com.feldmann.projetologin.repository.PhotosDataBase;
 import com.feldmann.projetologin.repository.PostsDataBase;
 import com.feldmann.projetologin.repository.TodosDataBase;
 import com.feldmann.projetologin.repository.UserDataBase;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
         PostsDataBase.getInstance(this);
         CommentsDataBase.getInstance(this);
         AlbunsDataBase.getInstance(this);
-        //PhotosDataBase.getInstance(this);
+        PhotosDataBase.getInstance(this);
         TodosDataBase.getInstance(this);
         UserDataBase.getInstance(this);
         this.presenterMain = new MainPresenter(this);
