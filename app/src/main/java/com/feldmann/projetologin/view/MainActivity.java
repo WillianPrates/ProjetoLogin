@@ -38,13 +38,6 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
     protected void onResume() {
         super.onResume();
         Log.d(tagLog, tagLog+"/onResume");
-        presenterMain.paraTelaLogin( ((Button) findViewById(R.id.btLoginMain)) );
-        presenterMain.paraListPosts( (Button) findViewById(R.id.btListPostsMain));
-        presenterMain.paraListComments( (Button) findViewById(R.id.btListCommentsMain));
-        presenterMain.paraListAlbuns( (Button) findViewById(R.id.btListAlbunsMain));
-        presenterMain.paraListPhotos( (Button) findViewById(R.id.btListPhotosMain));
-        presenterMain.paraListTodos( (Button) findViewById(R.id.btListTodosMain));
-        presenterMain.paraListUsers( (Button) findViewById(R.id.btListUserMain));
     }
     //
     @Override

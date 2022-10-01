@@ -33,6 +33,29 @@
             android:id="@+id/tvLoginUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="@string/tvLoginUserPerfil" />
+
+        <Button
+            android:id="@+id/btListPostsPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/btnListPosts" />
+
+        <Button
+            android:id="@+id/btListAlbunsPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/btnListAlbuns" />
+
+        <Button
+            android:id="@+id/btListTodosPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/btnListTodos" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

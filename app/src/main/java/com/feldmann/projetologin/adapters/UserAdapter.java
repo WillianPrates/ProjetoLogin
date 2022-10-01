@@ -1,5 +1,6 @@
 package com.feldmann.projetologin.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.User;
+import com.feldmann.projetologin.presenter.PerfilPresenter;
+import com.feldmann.projetologin.view.PerfilUserActivity;
+
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -33,6 +37,17 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ((TextView)((UserViewHolder) holder).view.findViewById(R.id.tvIdUserRV)).setText("ID: "+Integer.toString( objUser.getId() ) );
         ((TextView)((UserViewHolder) holder).view.findViewById(R.id.tvNomeUserRV)).setText("Nome: "+objUser.getNome());
         ((TextView)((UserViewHolder) holder).view.findViewById(R.id.tvLoginUserRV)).setText("Login: "+objUser.getLogin());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+                Intent intent = new Intent(v.getContext(), PerfilUserActivity.class);
+                intent.putExtra("ID_USER", Integer.toString( objUser.getId() ));
+                intent.putExtra("NOME_USER", objUser.getNome());
+                intent.putExtra("LOGIN_USER", objUser.getLogin());
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -13,13 +13,6 @@ public class PresenterContract {
     }
     //
     public interface presenterMain {
-        public void paraTelaLogin(Button TelaLogin);
-        public void paraListPosts(Button ListPost);
-        public void paraListComments(Button ListComment);
-        public void paraListAlbuns(Button ListAlbum);
-        public void paraListPhotos(Button ListPhoto);
-        public void paraListTodos(Button ListTodo);
-        public void paraListUsers(Button ListUser);
     }
     //
     public interface presenterLogin {
@@ -29,7 +22,9 @@ public class PresenterContract {
     }
     //
     public interface presenterPerfil {
-        public void mostraUser(User user, TextView tvId, TextView tvNome, TextView tvLogin);
+        public void paraListAlbuns(Button ListAlbum);
+        public void paraListPosts(Button ListPost);
+        public void paraListTodos(Button ListTodo);
     }
     //
     public interface presenterCadastro {

@@ -17,6 +17,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
     private PresenterContract.view view;
     public MainPresenter(PresenterContract.view view) { this.view = view; }
     //
+    /*
     @Override
     public void paraTelaLogin(Button btnTelaLogin) {
         btnTelaLogin.setOnClickListener(new View.OnClickListener() {
@@ -27,18 +28,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
             }
         });
     }
-
-    @Override
-    public void paraListPosts(Button btnListPost) {
-        btnListPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), PostsActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-
+    //
     @Override
     public void paraListComments(Button btnListComment) {
         btnListComment.setOnClickListener(new View.OnClickListener() {
@@ -49,18 +39,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
             }
         });
     }
-
-    @Override
-    public void paraListAlbuns(Button btnListAlbum) {
-        btnListAlbum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), AlbumActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-
+    //
     @Override
     public void paraListPhotos(Button btnListPhoto) {
         btnListPhoto.setOnClickListener(new View.OnClickListener() {
@@ -71,18 +50,7 @@ public class MainPresenter implements PresenterContract.presenterMain{
             }
         });
     }
-
-    @Override
-    public void paraListTodos(Button btnListTodo) {
-        btnListTodo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), TodosActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-
+    //
     @Override
     public void paraListUsers(Button btnListUser) {
         btnListUser.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +61,5 @@ public class MainPresenter implements PresenterContract.presenterMain{
             }
         });
     }
+    */
 }

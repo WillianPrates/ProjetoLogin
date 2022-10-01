@@ -14,7 +14,9 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     private List<Posts> dadosPosts;
     //
-    public PostAdapter(List<Posts> dadosPosts) { this.dadosPosts = dadosPosts; }
+    public PostAdapter(List<Posts> dadosPosts) {
+        this.dadosPosts = dadosPosts;
+    }
 
     @NonNull
     @Override
@@ -25,8 +27,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        //position é o id do post
-        //
         Posts objPost = dadosPosts.get(position);
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvNomeUserPostRV)).setText("User: "+Integer.toString(objPost.getUserID()));
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvIdPostRV)).setText("ID: "+Integer.toString(objPost.getId() ) );
