@@ -29,7 +29,7 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVPosts(RecyclerView rv, String idUser, String nomeUser) {
         Log.d(tagLog, tagLog+"/setAdapterRVPosts");
-        PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts(), idUser, nomeUser);
+        PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts(), UserDataBase.getUsers());
         rv.setAdapter(adapterPost);
         rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }

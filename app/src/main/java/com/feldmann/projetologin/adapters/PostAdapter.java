@@ -9,18 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.Posts;
+import com.feldmann.projetologin.model.User;
+
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     private List<Posts> dadosPosts;
-    private String idUser;
-    private String nomeUser;
+    private List<User> dadosUser;
     //
-    public PostAdapter(List<Posts> dadosPosts, String idUser, String nomeUser) {
+    public PostAdapter(List<Posts> dadosPosts, List<User> dadosUser) {
         this.dadosPosts = dadosPosts;
-        this.idUser = idUser;
-        this.nomeUser = nomeUser;
+        this.dadosUser = dadosUser;
     }
 
     @NonNull
@@ -33,16 +33,21 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Posts objPost = dadosPosts.get(position);
+        User objUser = dadosUser.get( objPost.getUserID()-1 );
         //
-        Log.d("bindView", "idUser: "+idUser+" | nomeUser: "+nomeUser+"\nPostUserId: "+Integer.toString(objPost.getUserID()) );
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvNomeUserPostRV)).setText("User: "+Integer.toString(objPost.getUserID()));
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvIdPostRV)).setText("ID: "+Integer.toString(objPost.getId() ) );
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvTituloPostRV)).setText("Titulo: "+objPost.getTitle());
-        ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvBodyPostRV)).setText(" "+objPost.getBody());
+        if ( objUser.getId() == objPost.getUserID() ){
+            ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvNomeUserPostRV)).setText("User: "+objUser.getNome());
+            ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvIdPostRV)).setText("ID: "+Integer.toString(objPost.getId() ) );
+            ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvTituloPostRV)).setText("Titulo: "+objPost.getTitle());
+            ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvBodyPostRV)).setText(" "+objPost.getBody());
+        }
+        //
     }
     //
     @Override
-    public int getItemCount() { return dadosPosts.size(); }
+    public int getItemCount() {
+        return dadosPosts.size();
+    }
     //
 }//fim class postAdapter
 //

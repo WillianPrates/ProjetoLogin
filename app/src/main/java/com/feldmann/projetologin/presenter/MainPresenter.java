@@ -17,49 +17,4 @@ public class MainPresenter implements PresenterContract.presenterMain{
     private PresenterContract.view view;
     public MainPresenter(PresenterContract.view view) { this.view = view; }
     //
-    /*
-    @Override
-    public void paraTelaLogin(Button btnTelaLogin) {
-        btnTelaLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), LoginActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-    //
-    @Override
-    public void paraListComments(Button btnListComment) {
-        btnListComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), CommentActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-    //
-    @Override
-    public void paraListPhotos(Button btnListPhoto) {
-        btnListPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), PhotoActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-    //
-    @Override
-    public void paraListUsers(Button btnListUser) {
-        btnListUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), UserActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-    */
 }

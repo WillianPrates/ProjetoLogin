@@ -32,12 +32,6 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
                     null, this, this);
             queue.add(jaRequest);
             //
-            /*
-            users.add(new User(2, "fabio2", "fbo2", "1234"));
-            users.add(new User(3, "fabio3", "fbo3", "1234"));
-            users.add(new User(4, "fabio4", "fbo4", "1234"));
-            Log.d(tagLog, "usuarios criados");
-            */
         }
     }
     //
@@ -49,18 +43,6 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
         //}
         return instance;
     }
-    //
-    public User getUserByLogin(String login){
-        Log.d(tagLog, tagLog+"/getUserByLogin");
-        User ret = null;
-        for(User u : users){
-            if (u.getLogin().equals(login)){
-                ret = u;
-            }//fim if
-        }//fim for
-        return ret;
-    }//fim metodo
-    //
     //
     @Override
     public void onResponse(JSONArray response) {

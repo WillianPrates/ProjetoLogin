@@ -62,8 +62,3 @@ public class PerfilUserActivity extends AppCompatActivity implements PresenterCo
         }
     }
 }//fim class
-/*
-
-        presenterMain.paraListPhotos( (Button) findViewById(R.id.btListPhotosMain));
-        presenterMain.paraListTodos( (Button) findViewById(R.id.btListTodosMain));
- */
