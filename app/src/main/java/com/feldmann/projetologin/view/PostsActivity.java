@@ -22,7 +22,11 @@ public class PostsActivity extends AppCompatActivity implements PresenterContrac
         Log.d(tagLog, tagLog+"/onCreate");
         this.presenterLists = new ListsPresenter(this);
         //
-        presenterLists.setAdapterRVPosts( ((RecyclerView) findViewById(R.id.RVPosts)) );
+        presenterLists.setAdapterRVPosts(
+                ((RecyclerView) findViewById(R.id.RVPosts)),
+                getIntent().getStringExtra("ID_USER"),
+                getIntent().getStringExtra("NOME_USER")
+        );
         //
     }
 

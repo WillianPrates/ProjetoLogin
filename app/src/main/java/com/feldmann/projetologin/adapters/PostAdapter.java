@@ -1,5 +1,6 @@
 package com.feldmann.projetologin.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,13 @@ import java.util.List;
 public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     private List<Posts> dadosPosts;
+    private String idUser;
+    private String nomeUser;
     //
-    public PostAdapter(List<Posts> dadosPosts) {
+    public PostAdapter(List<Posts> dadosPosts, String idUser, String nomeUser) {
         this.dadosPosts = dadosPosts;
+        this.idUser = idUser;
+        this.nomeUser = nomeUser;
     }
 
     @NonNull
@@ -28,6 +33,8 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Posts objPost = dadosPosts.get(position);
+        //
+        Log.d("bindView", "idUser: "+idUser+" | nomeUser: "+nomeUser+"\nPostUserId: "+Integer.toString(objPost.getUserID()) );
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvNomeUserPostRV)).setText("User: "+Integer.toString(objPost.getUserID()));
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvIdPostRV)).setText("ID: "+Integer.toString(objPost.getId() ) );
         ((TextView)((PostViewHolder) holder).view.findViewById(R.id.tvTituloPostRV)).setText("Titulo: "+objPost.getTitle());

@@ -23,7 +23,7 @@ public class PresenterContract {
     //
     public interface presenterPerfil {
         public void paraListAlbuns(Button ListAlbum);
-        public void paraListPosts(Button ListPost);
+        public void paraListPosts(Button ListPost, String idUser, String nomeUser);
         public void paraListTodos(Button ListTodo);
     }
     //
@@ -33,7 +33,7 @@ public class PresenterContract {
     }
     //
     public interface presenterLists {
-        public void setAdapterRVPosts(RecyclerView rv);
+        public void setAdapterRVPosts(RecyclerView rv, String idUser, String nomeUser);
         public void setAdapterRVComments(RecyclerView rv);
         public void setAdapterRVAlbuns(RecyclerView rv);
         public void setAdapterRVPhotos(RecyclerView rv);

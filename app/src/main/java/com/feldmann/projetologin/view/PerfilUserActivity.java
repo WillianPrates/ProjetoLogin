@@ -9,16 +9,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.feldmann.projetologin.R;
+import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.presenter.PerfilPresenter;
 import com.feldmann.projetologin.repository.UserDataBase;
-
-import org.w3c.dom.Text;
 
 public class PerfilUserActivity extends AppCompatActivity implements PresenterContract.view  {
     private static final String tagLog = "PerfilUserActivity";
     //
     private PresenterContract.presenterPerfil presenterPerfil;
+    private User user;
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +26,22 @@ public class PerfilUserActivity extends AppCompatActivity implements PresenterCo
         setContentView(R.layout.activity_perfil_user);
         Log.d(tagLog, tagLog+"/onCreate");
         this.presenterPerfil = new PerfilPresenter(this);
+        user = getIntent().getParcelableExtra("USER_OBJECT");
         //
-        ((TextView) findViewById(R.id.tvIdUser)).setText("ID: "+getIntent().getStringExtra("ID_USER"));
-        ((TextView) findViewById(R.id.tvNomeUser)).setText("Nome: "+getIntent().getStringExtra("NOME_USER"));
-        ((TextView) findViewById(R.id.tvLoginUser)).setText("Login: "+getIntent().getStringExtra("LOGIN_USER"));
+        ((TextView) findViewById(R.id.tvIdUser)).setText("ID: "+Integer.toString( user.getId() ));
+        ((TextView) findViewById(R.id.tvNomeUser)).setText("Nome: "+user.getNome());
+        ((TextView) findViewById(R.id.tvLoginUser)).setText("Login: "+user.getLogin());
         //
     }//fim onCreate
     //
     @Override
     protected void onResume() {
         super.onResume();
-        presenterPerfil.paraListPosts( ((Button) findViewById(R.id.btListPostsPerfil)));
+        presenterPerfil.paraListPosts(
+                ((Button) findViewById(R.id.btListPostsPerfil)),
+                Integer.toString( user.getId() ),
+                user.getNome()
+        );
         presenterPerfil.paraListAlbuns( (Button) findViewById(R.id.btListAlbunsPerfil));
         presenterPerfil.paraListTodos( (Button) findViewById(R.id.btListTodosPerfil));
     }

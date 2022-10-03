@@ -19,11 +19,13 @@ public class PerfilPresenter implements PresenterContract.presenterPerfil{
     public PerfilPresenter(PresenterContract.view view) { this.view = view; }
     //
     @Override
-    public void paraListPosts(Button btnListPost) {
+    public void paraListPosts(Button btnListPost, String idUser, String nomeUser) {
         btnListPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), PostsActivity.class);
+                intent.putExtra("ID_USER", idUser);
+                intent.putExtra("NOME_USER", nomeUser);
                 view.getActivity().startActivity(intent);
             }
         });

@@ -2,6 +2,7 @@ package com.feldmann.projetologin.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
     protected void onResume() {
         super.onResume();
         Log.d(tagLog, tagLog+"/onResume");
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
     //
     @Override
