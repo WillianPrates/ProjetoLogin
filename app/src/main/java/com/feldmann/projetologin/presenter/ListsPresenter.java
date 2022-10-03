@@ -45,7 +45,7 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVAlbuns(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVAlbuns");
-        AlbumAdapter adapterAlbum = new AlbumAdapter(AlbunsDataBase.getAlbuns());
+        AlbumAdapter adapterAlbum = new AlbumAdapter(AlbunsDataBase.getAlbuns(), UserDataBase.getUsers());
         rv.setAdapter(adapterAlbum);
         rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
