@@ -8,14 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.model.Todos;
+import com.feldmann.projetologin.model.User;
 
 import java.util.List;
 
 public class TodoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     private List<Todos> dadosTodo;
+    private List<User> dadosUser;
     //
-    public TodoAdapter(List<Todos> dadosTodo) { this.dadosTodo = dadosTodo; }
+    public TodoAdapter(List<Todos> dadosTodo, List<User> dadosUser) {
+        this.dadosTodo = dadosTodo;
+        this.dadosUser = dadosUser;
+    }
 
     @NonNull
     @Override
@@ -26,15 +31,18 @@ public class TodoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        //
         Todos objTodo = dadosTodo.get(position);
-        ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvIdUserTodo)).setText("User: "+Integer.toString(objTodo.getUserID()));
-        ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvIdTodo)).setText("ID: "+Integer.toString(objTodo.getId()));
-        ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvTitleTodo)).setText("Titulo: "+objTodo.getTitle());
-        if (objTodo.isCompleted()){
-            ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvCompleteTodo)).setText("Status: "+"OK");
-        }else{
-            ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvCompleteTodo)).setText("Status: "+"X");
+        User objUser = dadosUser.get( objTodo.getUserID()-1 );
+        //
+        if ( objUser.getId() == objTodo.getUserID() ){
+            ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvIdUserTodo)).setText("User: "+objUser.getNome());
+            ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvIdTodo)).setText("ID: "+Integer.toString(objTodo.getId()));
+            ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvTitleTodo)).setText("Titulo: "+objTodo.getTitle());
+            if (objTodo.isCompleted()){
+                ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvCompleteTodo)).setText("Status: "+"OK");
+            }else{
+                ((TextView)((TodoViewHolder) holder).view.findViewById(R.id.tvCompleteTodo)).setText("Status: "+"X");
+            }
         }
     }
     //

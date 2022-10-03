@@ -61,7 +61,7 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVTodos(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVTodos");
-        TodoAdapter adapterTodo = new TodoAdapter(TodosDataBase.getTodos());
+        TodoAdapter adapterTodo = new TodoAdapter(TodosDataBase.getTodos(), UserDataBase.getUsers());
         rv.setAdapter(adapterTodo);
         rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
 
