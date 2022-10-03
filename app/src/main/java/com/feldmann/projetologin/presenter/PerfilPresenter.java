@@ -18,38 +18,7 @@ public class PerfilPresenter implements PresenterContract.presenterPerfil{
     private PresenterContract.view view;
     public PerfilPresenter(PresenterContract.view view) { this.view = view; }
     //
-    @Override
-    public void paraListPosts(Button btnListPost, String idUser, String nomeUser) {
-        btnListPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), PostsActivity.class);
-                intent.putExtra("ID_USER", idUser);
-                intent.putExtra("NOME_USER", nomeUser);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
+
     //
-    @Override
-    public void paraListAlbuns(Button btnListAlbum) {
-        btnListAlbum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), AlbumActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
-    //
-    @Override
-    public void paraListTodos(Button btnListTodo) {
-        btnListTodo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(view.getActivity(), TodosActivity.class);
-                view.getActivity().startActivity(intent);
-            }
-        });
-    }
+
 }

@@ -37,13 +37,6 @@ public class PerfilUserActivity extends AppCompatActivity implements PresenterCo
     @Override
     protected void onResume() {
         super.onResume();
-        presenterPerfil.paraListPosts(
-                ((Button) findViewById(R.id.btListPostsPerfil)),
-                Integer.toString( user.getId() ),
-                user.getNome()
-        );
-        presenterPerfil.paraListAlbuns( (Button) findViewById(R.id.btListAlbunsPerfil));
-        presenterPerfil.paraListTodos( (Button) findViewById(R.id.btListTodosPerfil));
     }
     //
     @Override

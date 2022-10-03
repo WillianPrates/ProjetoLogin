@@ -31,5 +31,5 @@ public class UserActivity extends AppCompatActivity implements PresenterContract
     public void message(String msg) { /**/ }
 
     @Override
-    public Activity getActivity() {return this; }
+    public Activity getActivity() { return this; }
 }

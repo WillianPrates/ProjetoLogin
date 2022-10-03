@@ -13,6 +13,10 @@ public class PresenterContract {
     }
     //
     public interface presenterMain {
+        public void paraListPosts(Button btnListPost);
+        public void paraListAlbuns(Button btnListAlbum);
+        public void paraListTodos(Button btnListTodo);
+        public void paraListUsers(Button btnListUser);
     }
     //
     public interface presenterLogin {
@@ -22,9 +26,6 @@ public class PresenterContract {
     }
     //
     public interface presenterPerfil {
-        public void paraListAlbuns(Button ListAlbum);
-        public void paraListPosts(Button ListPost, String idUser, String nomeUser);
-        public void paraListTodos(Button ListTodo);
     }
     //
     public interface presenterCadastro {
@@ -39,8 +40,6 @@ public class PresenterContract {
         public void setAdapterRVPhotos(RecyclerView rv);
         public void setAdapterRVTodos(RecyclerView rv);
         public void setAdapterRVUsers(RecyclerView rv);
-        // criar repositorios e adapters para cada um das views
-        // e colocar aqui os setadapters pra cada um deles
     }
     //
 }

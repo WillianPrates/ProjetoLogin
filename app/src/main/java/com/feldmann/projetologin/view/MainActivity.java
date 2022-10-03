@@ -39,8 +39,10 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
     protected void onResume() {
         super.onResume();
         Log.d(tagLog, tagLog+"/onResume");
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        presenterMain.paraListPosts( (Button) findViewById(R.id.btListPostsMain) );
+        presenterMain.paraListAlbuns( ((Button) findViewById(R.id.btListAlbunsMain)) );
+        presenterMain.paraListTodos( ((Button) findViewById(R.id.btListTodosMain)) );
+        presenterMain.paraListUsers( ((Button) findViewById(R.id.btListUserMain)) );
     }
     //
     @Override
