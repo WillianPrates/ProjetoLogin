@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
             android:text="@string/TituloLoginActivity" />
 
         <Button
@@ -28,20 +29,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
             android:text="@string/btnListPosts" />
+
+        <Button
+            android:id="@+id/btListCommentMain"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:text="@string/btnListComments" />
 
         <Button
             android:id="@+id/btListAlbunsMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
             android:text="@string/btnListAlbuns" />
+
+        <Button
+            android:id="@+id/btListPhotoMain"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:text="@string/btnListPhotos" />
 
         <Button
             android:id="@+id/btListTodosMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
             android:text="@string/btnListTodos" />
 
         <Button
@@ -49,6 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
             android:text="@string/btnListUsers" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

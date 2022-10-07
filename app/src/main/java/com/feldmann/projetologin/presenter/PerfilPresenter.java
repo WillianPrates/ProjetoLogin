@@ -12,13 +12,9 @@ import com.feldmann.projetologin.view.PostsActivity;
 import com.feldmann.projetologin.view.TodosActivity;
 
 public class PerfilPresenter implements PresenterContract.presenterPerfil{
-    private final String tagLog = this.getClass().getName();
-    private Intent intent;
+    private final String tagLog = "PerfilPresenter";
     //
     private PresenterContract.view view;
     public PerfilPresenter(PresenterContract.view view) { this.view = view; }
     //
-
-    //
-
 }

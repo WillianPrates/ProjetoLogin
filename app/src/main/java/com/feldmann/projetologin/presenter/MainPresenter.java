@@ -20,6 +20,17 @@ public class MainPresenter implements PresenterContract.presenterMain{
     public MainPresenter(PresenterContract.view view) { this.view = view; }
     //
     @Override
+    public void telaLogin(Button btnTelaLogin) {
+        btnTelaLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(view.getActivity(), LoginActivity.class);
+                view.getActivity().startActivity(intent);
+            }
+        });
+    }
+    //
+    @Override
     public void paraListPosts(Button btnListPost) {
         btnListPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,11 +42,32 @@ public class MainPresenter implements PresenterContract.presenterMain{
     }
     //
     @Override
+    public void paraListComment(Button btnListComment) {
+        btnListComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(view.getActivity(), CommentActivity.class);
+                view.getActivity().startActivity(intent);
+            }
+        });
+    }
+    //
+    @Override
     public void paraListAlbuns(Button btnListAlbum) {
         btnListAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(view.getActivity(), AlbumActivity.class);
+                view.getActivity().startActivity(intent);
+            }
+        });
+    }
+    @Override
+    public void paraListPhoto(Button btnListPhoto) {
+        btnListPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(view.getActivity(), PhotoActivity.class);
                 view.getActivity().startActivity(intent);
             }
         });

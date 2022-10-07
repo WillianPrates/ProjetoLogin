@@ -13,8 +13,11 @@ public class PresenterContract {
     }
     //
     public interface presenterMain {
+        public void telaLogin(Button btnTelaLogin);
         public void paraListPosts(Button btnListPost);
+        public void paraListComment(Button btnListComment);
         public void paraListAlbuns(Button btnListAlbum);
+        public void paraListPhoto(Button btnListPhoto);
         public void paraListTodos(Button btnListTodo);
         public void paraListUsers(Button btnListUser);
     }
