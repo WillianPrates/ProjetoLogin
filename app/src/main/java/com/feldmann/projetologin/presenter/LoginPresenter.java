@@ -22,6 +22,7 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
     public void verificaUsuario(String login, String senha) {
         Log.d(tagLog, tagLog+"/verificaUser");
         //
+        /*
         String sLogin, sSenha;
         for (int i = 0; i< UserDataBase.getUsers().size(); i++){
             User user = UserDataBase.getUsers().get(i);
@@ -36,6 +37,7 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
                 Log.d(tagLog, tagLog+"/USUARIO NÃO É VALIDO");
             }
         }//fim for
+        */
     }//fim metodo verificaUser
     //
     @Override

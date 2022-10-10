@@ -29,7 +29,8 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVPosts(RecyclerView rv, String idUser, String nomeUser) {
         Log.d(tagLog, tagLog+"/setAdapterRVPosts");
-        PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts(), UserDataBase.getUsers());
+        //PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts(), UserDataBase.getUsers());
+        PostAdapter adapterPost = new PostAdapter(PostsDataBase.getPosts());
         rv.setAdapter(adapterPost);
         rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
@@ -45,9 +46,9 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVAlbuns(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVAlbuns");
-        AlbumAdapter adapterAlbum = new AlbumAdapter(AlbunsDataBase.getAlbuns(), UserDataBase.getUsers());
-        rv.setAdapter(adapterAlbum);
-        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
+        //AlbumAdapter adapterAlbum = new AlbumAdapter(AlbunsDataBase.getAlbuns(), UserDataBase.getUsers());
+        //rv.setAdapter(adapterAlbum);
+        //rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
     }
     //
     @Override
@@ -61,18 +62,18 @@ public class ListsPresenter implements PresenterContract.presenterLists{
     @Override
     public void setAdapterRVTodos(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVTodos");
-        TodoAdapter adapterTodo = new TodoAdapter(TodosDataBase.getTodos(), UserDataBase.getUsers());
-        rv.setAdapter(adapterTodo);
-        rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
+        //TodoAdapter adapterTodo = new TodoAdapter(TodosDataBase.getTodos(), UserDataBase.getUsers());
+        //rv.setAdapter(adapterTodo);
+        //rv.setLayoutManager( new LinearLayoutManager( view.getActivity() ) );
 
     }
     //
     @Override
     public void setAdapterRVUsers(RecyclerView rv) {
         Log.d(tagLog, tagLog+"/setAdapterRVUsers");
-        UserAdapter adapterUser = new UserAdapter(UserDataBase.getUsers());
-        rv.setAdapter(adapterUser);
-        rv.setLayoutManager(new LinearLayoutManager(view.getActivity()));
+        //UserAdapter adapterUser = new UserAdapter(UserDataBase.getUsers());
+        //rv.setAdapter(adapterUser);
+        //rv.setLayoutManager(new LinearLayoutManager(view.getActivity()));
     }
     //
 }//fim class

@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +17,63 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+public class UserDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "UserDataBase";
+    private static UserDataBase instance = null;
+    private Context context;
+
+    public UserDataBase(Context context) {
+        super();
+        RequestQueue queue = Volley.newRequestQueue(context);
+        String url = "https://jsonplaceholder.typicode.com/users";
+        JsonArrayRequest jaRequest = new JsonArrayRequest(
+                Request.Method.GET, url,
+                null, this, this);
+        queue.add(jaRequest);
+        this.context = context;
+    }
+
+    //
+    public static UserDataBase getInstance(Context context) {
+        if (instance == null) {
+            instance = new UserDataBase(context);
+        }
+        return instance;
+    }
+    //
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        //
+    }
+    //
+    @Override
+    public void onResponse(JSONArray response) {
+        for (int i=0;i<response.length();i++){
+            try {
+                JSONObject json = response.getJSONObject(i);
+                DBHelper dbHelper = new DBHelper(this.context);
+                SQLiteDatabase database = dbHelper.getWritableDatabase();
+                ContentValues ctv;
+                //
+                for (int j=0;j<response.length();j++){
+                    ctv = new ContentValues();
+                    ctv.put("id", json.getInt("id"));
+                    ctv.put("nome", json.getString("name"));
+                    ctv.put("login", json.getString("username"));
+                    ctv.put("senha", json.getString("username"));
+                    database.insert("usuarios", null, ctv);
+                }
+                //
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }//fim try catch
+        }//fim for i
+    }
+    //
+}
+
+
+/*
 public class UserDataBase implements Response.Listener<JSONArray>, Response.ErrorListener{
     private static final String tagLog = "UserDataBase";
     //

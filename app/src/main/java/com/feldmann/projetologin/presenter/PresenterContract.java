@@ -45,4 +45,7 @@ public class PresenterContract {
         public void setAdapterRVUsers(RecyclerView rv);
     }
     //
+    public interface presenterDB{
+        public String criarTabelaUser();
+    }
 }
