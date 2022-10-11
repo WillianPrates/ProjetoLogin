@@ -16,7 +16,7 @@ import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.repository.DBHelper;
 
 public class UserActivity extends AppCompatActivity implements PresenterContract.view{
-    private static final String tagLog = "LoginActivity";
+    private static final String tagLog = "UserActivity";
     private PresenterContract.presenterLists presenterLists;
     //
     @Override
@@ -26,11 +26,11 @@ public class UserActivity extends AppCompatActivity implements PresenterContract
         Log.d(tagLog, tagLog+"/onCreate");
         this.presenterLists = new ListsPresenter(this);
         //
-        presenterLists.setAdapterRVUsers( (RecyclerView) findViewById(R.id.RVUsers));
-        //
         DBHelper db = new DBHelper(this, this);
         SQLiteDatabase sqlDB = db.getReadableDatabase();
         getUsersDB(sqlDB);
+        //
+        presenterLists.setAdapterRVUsers( (RecyclerView) findViewById(R.id.RVUsers));
         //
     }
     //
@@ -38,7 +38,7 @@ public class UserActivity extends AppCompatActivity implements PresenterContract
         Log.d(tagLog, "getUsersDB");
         Cursor cursor = sql.rawQuery("SELECT * FROM usuarios", null);
         if (cursor.moveToFirst()) {
-            Log.d(tagLog, "tem registros no banco");
+            Log.d("getUsersDB", "tem registros no banco");
             do {
                 //
                 Log.d("getUsersDB",
@@ -48,7 +48,7 @@ public class UserActivity extends AppCompatActivity implements PresenterContract
                                 "\nSenha: "+cursor.getString(3) );
             } while (cursor.moveToNext());
         }else{
-            Log.d(tagLog, "não tem registros");
+            Log.d("getUsersDB", "não tem registros");
         }
         cursor.close();
     }

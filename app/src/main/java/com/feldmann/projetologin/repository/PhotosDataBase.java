@@ -78,7 +78,7 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
                 ctv.put("titulo", json.getString("title") );
                 ctv.put("url", json.getString("url") );
                 ctv.put("thumb", json.getString("thumbnailUrl") );
-                sqlWrite.insert("usuarios", null, ctv);
+                sqlWrite.insert("fotos", null, ctv);
             }catch (JSONException e){
                 e.printStackTrace();
             }//fim try catch

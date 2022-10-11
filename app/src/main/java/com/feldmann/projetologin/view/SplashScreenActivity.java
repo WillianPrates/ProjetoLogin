@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+
 import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.presenter.PresenterContract;
 import com.feldmann.projetologin.presenter.SplashPresenter;
@@ -21,6 +23,8 @@ public class SplashScreenActivity extends AppCompatActivity implements Presenter
         setContentView(R.layout.activity_splash_screen);
         Log.d(tagLog, "onCreate");
         //
+        TextView tvLoad = (TextView) findViewById(R.id.tvLoading);
+        tvLoad.setText("Carregando Dados\nPor Favor, Aguarde");
         DBHelper dbHelper = new DBHelper(this, this);
         this.presenterSplash = new SplashPresenter(this);
         //

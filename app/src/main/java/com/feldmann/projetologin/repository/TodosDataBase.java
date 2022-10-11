@@ -71,7 +71,7 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
                 ctv.put("userId", json.getInt("userId") );
                 ctv.put("_id", json.getInt("id") );
                 ctv.put("titulo", json.getString("title") );
-                ctv.put("completed", String.valueOf( json.getBoolean("completed") ) );
+                ctv.put("completed", json.getBoolean("completed") );
                 sqlWrite.insert("tarefas", null, ctv);
             }catch (JSONException e){
                 e.printStackTrace();
