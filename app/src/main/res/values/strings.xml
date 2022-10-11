@@ -24,7 +24,6 @@
     <string name="tvIdUserPerfil">ID_USER</string>
     <string name="tvNomeUserPerfil">NOME_USUARIO</string>
     <string name="tvLoginUserPerfil">LOGIN_USER</string>
-
     <string name="tvIdPostList">ID_POSTS</string>
     <string name="tvTituloPost">TITULO_POST</string>
     <string name="tvBodyPost">BODY_POST</string>

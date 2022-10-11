@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -24,9 +26,11 @@ public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     private static List<Albuns> albuns;
     private static AlbunsDataBase instance = null;
+    private SQLiteDatabase sqlWrite;
     //
-    private AlbunsDataBase(Context context){
+    private AlbunsDataBase(Context context, SQLiteDatabase sqlWrite){
         super();
+        this.sqlWrite = sqlWrite;
         if (albuns == null){
             albuns = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
@@ -40,8 +44,8 @@ public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     public static List<Albuns> getAlbuns() { return albuns; }
     //
-    public static  AlbunsDataBase getInstance(Context context){
-        instance = new AlbunsDataBase(context);
+    public static AlbunsDataBase getInstance(Context context, SQLiteDatabase sqlWrite){
+        instance = new AlbunsDataBase(context, sqlWrite);
         return instance;
     }
     //
@@ -52,9 +56,11 @@ public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     @Override
     public void onResponse(JSONArray response) {
+        ContentValues ctv;
+        JSONObject json;
         for (int i=0;i< response.length();i++){
             try{
-                JSONObject json = response.getJSONObject(i);
+                json = response.getJSONObject(i);
                 albuns.add( new Albuns(
                         json.getInt("userId"),
                         json.getInt("id"),
@@ -63,6 +69,18 @@ public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.Er
             }catch (JSONException e){
                 e.printStackTrace();
             }//fim try catch
+            try{
+                ctv = new ContentValues();
+                json = response.getJSONObject(i);
+                //
+                ctv.put("userId", json.getInt("userId") );
+                ctv.put("_id", json.getInt("id") );
+                ctv.put("titulo", json.getString("title") );
+                //
+                sqlWrite.insert("albuns", null, ctv);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }//fim try catch
         }//fim for i
     }//fim onResponse
-}//fim class
+}//fim classe

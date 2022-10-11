@@ -2,6 +2,8 @@ package com.feldmann.projetologin.presenter;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,23 +21,29 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
     public LoginPresenter(PresenterContract.view view) { this.view = view; }
     //
     @Override
-    public void verificaUsuario(String login, String senha) {
+    public void verificaUsuario(Button btnEntrar, String login, String senha) {
         Log.d(tagLog, tagLog+"/verificaUser");
         //
-        String sLogin, sSenha;
-        for (int i = 0; i< UserDataBase.getUsers().size(); i++){
-            User user = UserDataBase.getUsers().get(i);
-            sLogin = UserDataBase.getUsers().get(i).getLogin();
-            sSenha = UserDataBase.getUsers().get(i).getSenha();
-            //
-            if (sLogin.equals(login) && sSenha.equals(senha)){
-                this.usuarioValido(user);
-                break;
-            }else{
-                // não é valido
-                Log.d(tagLog, tagLog+"/USUARIO NÃO É VALIDO");
+        btnEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sLogin, sSenha;
+                for (int i = 0; i< UserDataBase.getUsers().size(); i++){
+                    User user = UserDataBase.getUsers().get(i);
+                    sLogin = UserDataBase.getUsers().get(i).getLogin();
+                    sSenha = UserDataBase.getUsers().get(i).getSenha();
+                    //
+                    if (sLogin.equals(login) && sSenha.equals(senha)){
+                        usuarioValido(user);
+                        break;
+                    }else{
+                        // não é valido
+                        Log.d(tagLog, tagLog+"/USUARIO NÃO É VALIDO");
+                    }
+                }//fim for
             }
-        }//fim for
+        });
+
     }//fim metodo verificaUser
     //
     @Override
@@ -48,8 +56,13 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
     }
 
     @Override
-    public void telaCadastro() {
-        Intent intent = new Intent(view.getActivity(), CadastroActivity.class);
-        view.getActivity().startActivity(intent);
+    public void telaCadastro(Button btnTelaCadastro) {
+        btnTelaCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getActivity(), CadastroActivity.class);
+                view.getActivity().startActivity(intent);
+            }
+        });
     }
-}
+}//fim classe

@@ -22,7 +22,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.dadosPosts = dadosPosts;
         this.dadosUser = dadosUser;
     }
-
+    //
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

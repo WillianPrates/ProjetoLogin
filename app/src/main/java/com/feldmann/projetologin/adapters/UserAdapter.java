@@ -47,7 +47,6 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return dados.size();

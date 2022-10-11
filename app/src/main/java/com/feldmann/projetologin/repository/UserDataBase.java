@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,17 +14,21 @@ import com.feldmann.projetologin.model.User;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDataBase implements Response.Listener<JSONArray>, Response.ErrorListener{
+public class UserDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
     private static final String tagLog = "UserDataBase";
-    //
-    private static List<User> users;
     private static UserDataBase instance = null;
-    //
-    private UserDataBase(Context context){
+    private SQLiteDatabase sqlWrite;
+    private static List<User> users;
+
+    public UserDataBase(Context context, SQLiteDatabase sqlWrite) {
         super();
+        this.sqlWrite = sqlWrite;
+        Log.d(tagLog, "Construtor");
+        //
         if (users == null) {
             users = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
@@ -35,36 +41,47 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
         }
     }
     //
-    public static List<User> getUsers(){ return users; }
-    //
-    public static UserDataBase getInstance(Context context) {
-        //if (instance == null) {
-            instance = new UserDataBase(context);
-        //}
+    public static UserDataBase getInstance(Context context, SQLiteDatabase sqlWrite) {
+        instance = new UserDataBase(context, sqlWrite);
         return instance;
     }
     //
+    public static List<User> getUsers(){ return users; }
+    //
+    @Override
+    public void onErrorResponse(VolleyError error) { Log.e(tagLog, ""+error.getMessage()); }
+    //
     @Override
     public void onResponse(JSONArray response) {
-        for (int i=0;i<response.length();i++){
+        ContentValues ctv;
+        JSONObject json;
+        for (int i=0;i<=response.length();i++){
             try {
-                JSONObject json = response.getJSONObject(i);
+                json = response.getJSONObject(i);
                 users.add(new User(
                         json.getInt("id"),
                         json.getString("name"),
                         json.getString("username"),
                         json.getString("username")
                 ) );
+                //
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.e("onResponse", "Erro ao adicionar no List: "+e.getMessage() );
+            }//fim try catch
+            //
+            try {
+                ctv = new ContentValues();
+                json = response.getJSONObject(i);
+                //
+                ctv.put("_id", json.getInt("id") );
+                ctv.put("nome", json.getString("name") );
+                ctv.put("login", json.getString("username") );
+                ctv.put("senha", json.getString("username") );
+                sqlWrite.insert("usuarios", null, ctv);
+                //
+            } catch (JSONException e) {
+                Log.e("onResponse", "Erro ao adicionar no DB: "+e.getMessage() );
             }//fim try catch
         }//fim for i
     }//fim onResponse
-    //
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        //
-        Log.e(tagLog, tagLog+"/"+error.getMessage());
-    }//fim onErrorResponse
-
 }//fim classe

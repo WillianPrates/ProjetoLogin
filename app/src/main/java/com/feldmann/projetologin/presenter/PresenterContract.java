@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.presenter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +12,11 @@ public class PresenterContract {
     public interface view {
         public void message(String msg);
         public Activity getActivity();
+    }
+    //
+    public interface presenterSplash {
+        public void paraMainActivity();
+        public void setInstances(Context context, SQLiteDatabase sqlWrite);
     }
     //
     public interface presenterMain {
@@ -23,9 +30,9 @@ public class PresenterContract {
     }
     //
     public interface presenterLogin {
-        public void verificaUsuario(String login, String senha);
+        public void verificaUsuario(Button btnEntrar, String login, String senha);
         public void usuarioValido(User user);
-        public void telaCadastro();
+        public void telaCadastro(Button btnTelaCadastro);
     }
     //
     public interface presenterPerfil {
@@ -45,4 +52,12 @@ public class PresenterContract {
         public void setAdapterRVUsers(RecyclerView rv);
     }
     //
+    public interface presenterDB{
+        public String criarTabelaPosts();
+        public String criarTabelaComments();
+        public String criarTabelaAlbuns();
+        public String criarTabelaPhotos();
+        public String criarTabelaTarefas();
+        public String criarTabelaUser();
+    }
 }

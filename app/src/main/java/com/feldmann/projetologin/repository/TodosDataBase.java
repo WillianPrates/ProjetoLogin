@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,9 +22,11 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
     //
     private static List<Todos> todos;
     private static TodosDataBase instance = null;
+    private SQLiteDatabase sqlWrite;
     //
-    private TodosDataBase(Context context){
+    private TodosDataBase(Context context, SQLiteDatabase sqlWrite){
         super();
+        this.sqlWrite = sqlWrite;
         if (todos == null){
             todos = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
@@ -36,8 +40,8 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
     //
     public static List<Todos> getTodos(){ return todos; }
     //
-    public static TodosDataBase getInstance(Context context){
-        instance = new TodosDataBase(context);
+    public static TodosDataBase getInstance(Context context, SQLiteDatabase sqlWrite){
+        instance = new TodosDataBase(context, sqlWrite);
         return instance;
     }
     //
@@ -46,9 +50,11 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
     //
     @Override
     public void onResponse(JSONArray response) {
+        ContentValues ctv;
+        JSONObject json;
         for (int i=0;i< response.length();i++){
             try{
-                JSONObject json = response.getJSONObject(i);
+                json = response.getJSONObject(i);
                 todos.add( new Todos(
                         json.getInt("userId"),
                         json.getInt("id"),
@@ -57,7 +63,19 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
                 )/* fim new todos */ ); //fim add
             }catch (JSONException e){
                 e.printStackTrace();
-            }
-        }
-    }
-}
+            }//fim try catch
+            try{
+                ctv = new ContentValues();
+                json = response.getJSONObject(i);
+                //
+                ctv.put("userId", json.getInt("userId") );
+                ctv.put("_id", json.getInt("id") );
+                ctv.put("titulo", json.getString("title") );
+                ctv.put("completed", json.getBoolean("completed") );
+                sqlWrite.insert("tarefas", null, ctv);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }//fim try catch
+        }//fim for i
+    }//fim onResponse
+}//fim classe
