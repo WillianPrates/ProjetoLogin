@@ -4,9 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.feldmann.projetologin.presenter.DataBasePresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -17,16 +19,24 @@ public class DBHelper extends SQLiteOpenHelper {
     //
     private PresenterContract.presenterDB presenterDB;
     //
-    public DBHelper(@Nullable Context context) {
+    public DBHelper(@Nullable Context context, PresenterContract.view view) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
         Log.d(tagLog, "Contructor");
+        this.presenterDB = new DataBasePresenter(view);
+        //
     }
     //
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(tagLog, "onCreate");
         //
+        db.execSQL( presenterDB.criarTabelaPosts() );
+        db.execSQL( presenterDB.criarTabelaComments() );
+        db.execSQL( presenterDB.criarTabelaAlbuns() );
+        db.execSQL( presenterDB.criarTabelaPhotos() );
+        db.execSQL( presenterDB.criarTabelaTarefas() );
         db.execSQL( presenterDB.criarTabelaUser() );
+        //
     }
     //
     @Override

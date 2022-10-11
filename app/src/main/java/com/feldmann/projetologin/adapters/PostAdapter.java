@@ -17,13 +17,11 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //
     private List<Posts> dadosPosts;
     private List<User> dadosUser;
-    /*
+    //
     public PostAdapter(List<Posts> dadosPosts, List<User> dadosUser) {
         this.dadosPosts = dadosPosts;
         this.dadosUser = dadosUser;
     }
-    */
-    public PostAdapter(List<Posts> dadosPosts) { this.dadosPosts = dadosPosts; }
     //
     @NonNull
     @Override

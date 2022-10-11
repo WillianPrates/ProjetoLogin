@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,9 +22,11 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
     //
     private static List<Comments> comments;
     private static CommentsDataBase instance = null;
+    private SQLiteDatabase sqlWrite;
     //
-    private CommentsDataBase(Context context){
+    private CommentsDataBase(Context context, SQLiteDatabase sqlWrite){
         super();
+        this.sqlWrite = sqlWrite;
         if (comments == null){
             comments = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
@@ -36,8 +40,8 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
     //
     public static List<Comments> getComments() { return comments; }
     //
-    public static CommentsDataBase getInstance(Context context){
-        instance = new CommentsDataBase(context);
+    public static CommentsDataBase getInstance(Context context, SQLiteDatabase sqlWrite){
+        instance = new CommentsDataBase(context, sqlWrite);
         return instance;
     }
     //
@@ -48,9 +52,11 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
     //
     @Override
     public void onResponse(JSONArray response) {
+        ContentValues ctv;
+        JSONObject json;
         for (int i=0;i< response.length();i++){
             try{
-                JSONObject json = response.getJSONObject(i);
+                json = response.getJSONObject(i);
                 comments.add( new Comments(
                         json.getInt("postId"),
                         json.getInt("id"),
@@ -61,6 +67,20 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
             }catch (JSONException e){
                 e.printStackTrace();
             }//fim try catch
+            try{
+                ctv = new ContentValues();
+                json = response.getJSONObject(i);
+                //
+                ctv.put("postId", json.getInt("postId") );
+                ctv.put("_id", json.getInt("id") );
+                ctv.put("nome", json.getString("name") );
+                ctv.put("email", json.getString("email") );
+                ctv.put("corpo", json.getString("body") );
+                //
+                sqlWrite.insert("comments", null, ctv);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }//fim try catch
         }//fim for i
     }//fim onResponse
-}//fim class
+}//fim classe

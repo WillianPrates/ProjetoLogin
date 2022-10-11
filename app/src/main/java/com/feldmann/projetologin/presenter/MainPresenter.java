@@ -1,10 +1,18 @@
 package com.feldmann.projetologin.presenter;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.Button;
 
 import com.feldmann.projetologin.model.User;
+import com.feldmann.projetologin.repository.AlbunsDataBase;
+import com.feldmann.projetologin.repository.CommentsDataBase;
+import com.feldmann.projetologin.repository.PhotosDataBase;
+import com.feldmann.projetologin.repository.PostsDataBase;
+import com.feldmann.projetologin.repository.TodosDataBase;
+import com.feldmann.projetologin.repository.UserDataBase;
 import com.feldmann.projetologin.view.AlbumActivity;
 import com.feldmann.projetologin.view.CommentActivity;
 import com.feldmann.projetologin.view.LoginActivity;

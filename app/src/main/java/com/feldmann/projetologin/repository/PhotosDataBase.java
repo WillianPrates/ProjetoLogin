@@ -1,6 +1,8 @@
 package com.feldmann.projetologin.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -24,10 +26,12 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     private static List<Photos> photos;
     private static PhotosDataBase instance = null;
+    private SQLiteDatabase sqlWrite;
     //
-    private PhotosDataBase(Context context){
+    private PhotosDataBase(Context context, SQLiteDatabase sqlWrite){
         super();
-        if(photos == null){
+        this.sqlWrite = sqlWrite;
+        if ( photos == null ) {
             photos = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
             String url = "https://jsonplaceholder.typicode.com/photos";
@@ -40,8 +44,8 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     public static List<Photos> getPhotos() { return photos; }
     //
-    public static PhotosDataBase getInstance(Context context){
-        instance = new PhotosDataBase(context);
+    public static PhotosDataBase getInstance(Context context, SQLiteDatabase sqlWrite){
+        instance = new PhotosDataBase(context, sqlWrite);
         return instance;
     }
     //
@@ -50,9 +54,11 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
     //
     @Override
     public void onResponse(JSONArray response) {
+        ContentValues ctv;
+        JSONObject json;
         for (int i=0;i< response.length();i++){
             try{
-                JSONObject json = response.getJSONObject(i);
+                json = response.getJSONObject(i);
                 photos.add( new Photos(
                         json.getInt("albumId"),
                         json.getInt("id"),
@@ -62,7 +68,20 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
                 )/* fim new photos */ ); //fim add
             }catch (JSONException e){
                 e.printStackTrace();
-            }
-        }
-    }
-}
+            }//fim try catch
+            try{
+                ctv = new ContentValues();
+                json = response.getJSONObject(i);
+                //
+                ctv.put("albumId", json.getInt("albumId") );
+                ctv.put("_id", json.getInt("id") );
+                ctv.put("titulo", json.getString("title") );
+                ctv.put("url", json.getString("url") );
+                ctv.put("thumb", json.getString("thumbnailUrl") );
+                sqlWrite.insert("usuarios", null, ctv);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }//fim try catch
+        }//fim for i
+    }//fim onResponse
+}//fim classe

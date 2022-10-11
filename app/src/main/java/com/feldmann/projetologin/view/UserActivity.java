@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -11,6 +13,7 @@ import com.feldmann.projetologin.R;
 import com.feldmann.projetologin.presenter.ListsPresenter;
 import com.feldmann.projetologin.presenter.LoginPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
+import com.feldmann.projetologin.repository.DBHelper;
 
 public class UserActivity extends AppCompatActivity implements PresenterContract.view{
     private static final String tagLog = "LoginActivity";
@@ -25,11 +28,33 @@ public class UserActivity extends AppCompatActivity implements PresenterContract
         //
         presenterLists.setAdapterRVUsers( (RecyclerView) findViewById(R.id.RVUsers));
         //
+        DBHelper db = new DBHelper(this, this);
+        SQLiteDatabase sqlDB = db.getReadableDatabase();
+        getUsersDB(sqlDB);
+        //
     }
-
+    //
+    public void getUsersDB(SQLiteDatabase sql){
+        Log.d(tagLog, "getUsersDB");
+        Cursor cursor = sql.rawQuery("SELECT * FROM usuarios", null);
+        if (cursor.moveToFirst()) {
+            Log.d(tagLog, "tem registros no banco");
+            do {
+                //
+                Log.d("getUsersDB",
+                        "\nID: "+cursor.getString(0)+
+                                "\nNome: "+cursor.getString(1)+
+                                "\nLogin: "+cursor.getString(2)+
+                                "\nSenha: "+cursor.getString(3) );
+            } while (cursor.moveToNext());
+        }else{
+            Log.d(tagLog, "não tem registros");
+        }
+        cursor.close();
+    }
+    //
     @Override
     public void message(String msg) { /**/ }
-
     @Override
     public Activity getActivity() { return this; }
 }
