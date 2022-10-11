@@ -30,9 +30,9 @@ public class PresenterContract {
     }
     //
     public interface presenterLogin {
-        public void verificaUsuario(String login, String senha);
+        public void verificaUsuario(Button btnEntrar, String login, String senha);
         public void usuarioValido(User user);
-        public void telaCadastro();
+        public void telaCadastro(Button btnTelaCadastro);
     }
     //
     public interface presenterPerfil {

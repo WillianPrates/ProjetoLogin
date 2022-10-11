@@ -28,24 +28,13 @@ public class LoginActivity extends AppCompatActivity implements PresenterContrac
         //
         this.presenterLogin = new LoginPresenter(this);
         //
-        ((Button)findViewById(R.id.btEntrar)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(tagLog, "/onClick botao login");
-                presenterLogin.verificaUsuario(
-                        ((EditText)findViewById(R.id.etLoginLogin)).getText().toString(),
-                        ((EditText)findViewById(R.id.etSenhaLogin)).getText().toString()
-                );
-            }
-        });
+        presenterLogin.verificaUsuario(
+                (Button)findViewById(R.id.btEntrar),
+                ((EditText)findViewById(R.id.etLoginLogin)).getText().toString(),
+                ((EditText)findViewById(R.id.etSenhaLogin)).getText().toString()
+        );
         //
-        ((Button)findViewById(R.id.btTelaCadastro)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(tagLog, "/onClick botao para tela cadastro");
-                presenterLogin.telaCadastro();
-            }
-        });
+        presenterLogin.telaCadastro( (Button)findViewById(R.id.btTelaCadastro) );
         //
     }//fim onCreate
 
