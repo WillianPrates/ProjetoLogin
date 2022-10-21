@@ -11,12 +11,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.feldmann.projetologin.R;
+import com.feldmann.projetologin.model.User;
 import com.feldmann.projetologin.presenter.CadastroPresenter;
 import com.feldmann.projetologin.presenter.PresenterContract;
+import com.feldmann.projetologin.sqlite.Banco;
 
 public class CadastroActivity extends AppCompatActivity implements PresenterContract.view{
     private static final String tagLog = "CadastroActivity";
     private PresenterContract.presenterCadastro presenterCadastro;
+
+    User user = new User();
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,10 @@ public class CadastroActivity extends AppCompatActivity implements PresenterCont
                         ((EditText)findViewById(R.id.etNomeCadastro)).getText().toString(),
                         ((EditText)findViewById(R.id.etLoginCadastro)).getText().toString(),
                         ((EditText)findViewById(R.id.etSenhaCadastro)).getText().toString()
+
                 );
+                Banco banco = new Banco(this);
+                banco.inserir(user);
             }
         });
     }
